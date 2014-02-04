@@ -1,0 +1,13 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="background">#FFFCD3</color>
+    <color name="dark_purple">#4B1431</color>
+    <color name="red">#E82B27</color>
+    <color name="brown">#B87950</color>
+    <color name="blue">#3DBBED</color>
+    <color name="green">#A09C2E</color>
+    <color name="yellow">#FFDF00</color>
+    <color name="pink">#D55391</color>
+
+</resources>

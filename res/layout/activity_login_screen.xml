@@ -47,10 +47,11 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/logo_big" 
-                android:contentDescription="@string/welcome"/>
+                android:layout_width="wrap_content"
+	            android:layout_height="0dp"
+	            android:layout_weight="0.12"
+	            android:contentDescription="@string/welcome"
+	            android:src="@drawable/logo_big"/>
 
             <EditText
                 android:id="@+id/email"

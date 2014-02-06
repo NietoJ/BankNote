@@ -27,7 +27,14 @@
             android:label="@string/title_activity_login_screen"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
-        
+        <activity
+            android:name="com.example.banknote.Register_screen"
+            android:label="@string/title_activity_register_screen"
+            android:parentActivityName="com.example.banknote.Welcome_screen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.banknote.Welcome_screen" />
+        </activity>
     </application>
 
 </manifest>

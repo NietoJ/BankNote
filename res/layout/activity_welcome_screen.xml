@@ -42,7 +42,8 @@
             android:layout_height="60dp"
             android:text="@string/login"
             android:textColor="@color/dark_purple"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="goToLogInScreen"  />
 
         <Button
             android:id="@+id/reg_button"
@@ -50,7 +51,8 @@
             android:layout_height="60dp"
             android:textSize="20sp" 
             android:text="@string/register"
-            android:textColor="@color/dark_purple" />
+            android:textColor="@color/dark_purple"
+            android:onClick="goToRegisterScreen" />
 
 
 

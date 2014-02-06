@@ -8,5 +8,7 @@
     <string name="login">Log in</string>
     <string name="register">Register</string>
     <string name="logo_pic">logo picture</string>
-
+    <string name="title_activity_register_screen">Register_screen</string>
+	<string name="registration_header">Register for BankNote</string>
+	<string name="registration_filler">Congratulations!  You have reached the registration screen.</string>
 </resources>

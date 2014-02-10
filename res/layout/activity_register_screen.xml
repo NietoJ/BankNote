@@ -48,11 +48,10 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-	            android:layout_height="0dp"
-	            android:layout_weight="0.12"
-	            android:contentDescription="@string/welcome"
-	            android:src="@drawable/logo_big"/>
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:contentDescription="@string/welcome"
+                android:src="@drawable/logo_big" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -60,6 +59,40 @@
                 android:layout_height="wrap_content"
                 android:text="@string/registration_filler"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/text_field_new_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:hint="@string/prompt_email" >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/text_field_prompt_new_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/prompt_username" />
+
+            <EditText
+                android:id="@+id/text_field_new_password_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/prompt_password" />
+
+            <EditText
+                android:id="@+id/text_field_new_password_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/verify_password" />
 
         </LinearLayout>
     </ScrollView>

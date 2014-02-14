@@ -22,15 +22,13 @@ public class Welcome_screen extends Activity {
 	}
 	
 	/** Called when the user clicks the Log In button */
-	public void goToLogInScreen(View view) 
-	{
+	public void goToLogInScreen(View view)	{
 		Intent intent = new Intent(this, Login_screen.class);
 		startActivity(intent);
 	}
 	
 	/** Called when the user clicks the Register button */
-	public void goToRegisterScreen(View view) 
-	{
+	public void goToRegisterScreen(View view) {
 		Intent intent = new Intent(this, Register_screen.class);
 		startActivity(intent);
 	}

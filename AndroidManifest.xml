@@ -35,6 +35,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.banknote.Welcome_screen" />
         </activity>
+        <activity
+            android:name="com.example.banknote.LoginSuccess"
+            android:label="@string/title_activity_login_success"
+            android:parentActivityName="com.example.banknote.Login_screen" >
+        </activity>
     </application>
 
 </manifest>

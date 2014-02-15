@@ -71,11 +71,15 @@ public class Login_screen extends Activity {
 		{
 			Context context = getApplicationContext();
 			CharSequence text = "Try again!";
-			int duration = Toast.LENGTH_SHORT;
+			int duration = Toast.LENGTH_LONG;
 
 			Toast toast = Toast.makeText(context, text, duration);
 			toast.show();
+			// clear out the text fields Password and Email
+			mPasswordView.setText("");
+			mEmailView.setText("");
 		} 
+		
 	}
 
 

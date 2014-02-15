@@ -1,11 +1,13 @@
 package com.example.banknote;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.banknote.model.LoginHandler;
 
@@ -32,11 +34,11 @@ public class Login_screen extends Activity {
 		// Set up the login form.
 		mEmailView = (EditText) findViewById(R.id.email);
 		mPasswordView = (EditText) findViewById(R.id.password);
-
+		//makes sign in button actually work
 		findViewById(R.id.sign_in_button).setOnClickListener(
 				new View.OnClickListener() {
 					@Override
-					public void onClick(View view) {
+					public void onClick(View view) {  //this "view" is the button
 						attemptLogin(view);
 					}
 				});
@@ -63,6 +65,16 @@ public class Login_screen extends Activity {
 			Intent successIntent = new Intent();
 			successIntent.setClassName("com.example.banknote", "com.example.banknote.LoginSuccess");
 			startActivity(successIntent); 
+			 
+		} 
+		else// stay on login screen and notify user with toast
+		{
+			Context context = getApplicationContext();
+			CharSequence text = "Try again!";
+			int duration = Toast.LENGTH_SHORT;
+
+			Toast toast = Toast.makeText(context, text, duration);
+			toast.show();
 		} 
 	}
 

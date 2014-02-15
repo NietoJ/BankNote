@@ -46,6 +46,11 @@
             android:gravity="center"
             android:orientation="vertical" >
 
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="20dp" />
+            
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="96dp"
@@ -53,12 +58,19 @@
                 android:contentDescription="@string/welcome"
                 android:src="@drawable/logo_big" />
 
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="20dp" />
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/registration_filler"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
 
             <EditText
                 android:id="@+id/text_field_new_email"
@@ -93,6 +105,15 @@
                 android:ems="10"
                 android:inputType="textPassword"
                 android:hint="@string/verify_password" />
+            
+            <Button
+                android:id="@+id/register_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:text="@string/register" />
 
         </LinearLayout>
     </ScrollView>

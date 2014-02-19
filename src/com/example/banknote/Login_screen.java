@@ -28,9 +28,8 @@ public class Login_screen extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.activity_login_screen);
-
+		
 		// Set up the login form.
 		mEmailView = (EditText) findViewById(R.id.email);
 		mPasswordView = (EditText) findViewById(R.id.password);
@@ -77,6 +76,4 @@ public class Login_screen extends Activity {
 			toast.show();
 		} 
 	}
-
-
 }

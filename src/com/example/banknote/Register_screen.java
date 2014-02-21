@@ -87,8 +87,7 @@ public class Register_screen extends Activity {
 		mPassword1 = mPassword1View.getText().toString();
 		mPassword2 = mPassword2View.getText().toString();
 		
-		if (RegisterHandler.isValidPass(mPassword1) && RegisterHandler.isValidPass(mPassword2) && mPassword1.equals(mPassword2)) {
-			RegisterHandler.store(mEmail, mPassword1);
+		if (mPassword1.equals(mPassword2) && RegisterHandler.store(mEmail, mPassword1)) {
 			Intent successIntent = new Intent();
 			successIntent.setClassName("com.example.banknote", "com.example.banknote.Login_screen");
 			startActivity(successIntent); 

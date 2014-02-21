@@ -1,5 +1,6 @@
 package JUnit;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -18,8 +19,10 @@ public class RegisterTest {
 
 	@Test
 	public void registerNew1() {
-		RegisterHandler.store("bob", "waters");
+		System.out.println(RegisterHandler.store("bob", "waters"));
 		assertTrue(LoginHandler.attemptLogin("admin", "pass123"));
 		assertTrue(LoginHandler.attemptLogin("bob", "waters"));
+		assertFalse(RegisterHandler.store("bob", "waters"));
+		System.out.println(RegisterHandler.store("bob", "waters"));
 	}
 }

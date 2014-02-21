@@ -13,6 +13,7 @@ public class RegisterHandler {
 	public static boolean isValidName(String str) {
 		if (str == null || CredentialStore.isIn(str) || str.equals("")) {
 			return false;
+			
 		}
 		return true;
 	}

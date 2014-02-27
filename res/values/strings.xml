@@ -14,7 +14,7 @@
     <string name="prompt_username">Username</string>
     <string name="verify_password">Verify Password</string>
     <string name="title_activity_login_success">Login Success!</string>
-    <string name="title_activity_fin_account_reg">Fin_Account_Reg</string>
+    <string name="title_activity_fin__account__reg">Fin_Account_Reg</string>
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="dashboard">DASHBOARD</string>
     <string name="add_account">New Account</string>

@@ -40,6 +40,19 @@
             android:label="@string/title_activity_login_success"
             android:parentActivityName="com.example.banknote.Login_screen" >
         </activity>
+        <activity
+            android:name="com.example.banknote.Fin_acc_register"
+            android:label="@string/title_activity_fin_acc_register"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="com.example.banknote.Fin_Account_Reg"
+            android:label="@string/title_activity_fin__account__reg" >
+        </activity>
+        <activity
+            android:name="com.example.banknote.Dashboard"
+            android:label="@string/title_activity_dashboard" >
+        </activity>
     </application>
 
 </manifest>

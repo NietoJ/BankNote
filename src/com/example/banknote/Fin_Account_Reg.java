@@ -1,17 +1,14 @@
 package com.example.banknote;
 
-import com.example.banknote.model.RegisterHandler;
+// IMPORT THE MODEL FILE AND DELETE THE CHECK PROTOTYPES 
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class Fin_Account_Reg extends Activity {
 	
@@ -80,6 +77,32 @@ public class Fin_Account_Reg extends Activity {
 		
 	// PRESETER OPERATION
 		
+		checkFullName(accFullname);
+		checkDisplayName(accDisplayName);
+		checkIntBalance(accBalance);
+		checkIntRate(accIntRate);	
 	}
+	
+	public boolean checkFullName(String fullname )
+	{
+		return false;
+	}
+	
+	public boolean checkDisplayName(String displayName )
+	{
+		return false;
+	}
+	
+	public boolean checkIntBalance(String balance )
+	{
+		return false;
+		
+	}
+	
+	public boolean checkIntRate(String rate )
+	{
+		return false;
+	}
+	
 
 }

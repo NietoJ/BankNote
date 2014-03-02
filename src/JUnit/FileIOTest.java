@@ -14,4 +14,9 @@ public class FileIOTest {
 		assertEquals("admin", FileIO.getCred().trim());
 	}
 
+	String getSearchName()
+	{
+		return "";
+	}
+
 }

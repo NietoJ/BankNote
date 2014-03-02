@@ -2,28 +2,101 @@ package com.example.banknote.model;
 
 import java.util.ArrayList;
 
-public class CredentialStore {
-	private static ArrayList<String> names = new ArrayList<String>();
-	private static ArrayList<String> passwords = new ArrayList<String>();
+public class CredentialStore 
+{
+	//Holds users, each with a name and password
+	private static ArrayList<User> users = new ArrayList<User>();
 	
-	public static void add(String name, String pass){
-		names.add(name);
-		passwords.add(pass);
+	/**
+	 * Creates a new user and adds it to the collection of users
+	 * @param name
+	 * @param password
+	 */
+	public static void add(String name, String password)
+	{
+		User u = new User(name,password);
+		users.add(u);
 	}
 	
-	public static ArrayList<String> getNames(){
+	/**
+	 * Returns a lists of the user names
+	 * @return
+	 */
+	public static ArrayList<String> getNames()
+	{
+		ArrayList<String>names = new ArrayList<String>();
+		for (User u : users)
+		{
+			names.add(u.getName());
+		}
 		return names;
 	}
 	
-	public static String getPassAtIndex(int index){
-		return passwords.get(index);
+	
+	/**
+	 * Determines if a username already exists
+	 * @param name
+	 * @return true if the name already exists
+	 */
+	public static boolean containsName(String name)
+	{
+		for (User u: users)
+		{
+			if (u.getName().equals(name))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
-	public static boolean isIn(String name){
-		return names.contains(name);
+	
+	/**
+	 * Returns a list of the user passwords
+	 * @return
+	 */
+	public static ArrayList<String> getPassWords()
+	{
+		ArrayList<String>passwords = new ArrayList<String>();
+		for (User u : users)
+		{
+			passwords.add(u.getPassword());
+		}
+		return passwords;
 	}
 	
-	public static int getIndexOfName(String name){
-		return names.lastIndexOf(name);
+	/**
+	 * Determines if a user with a given name and password exists
+	 * @param name
+	 * @param password
+	 * @return true if the user exists
+	 */
+	public static boolean containsNameAndPassword(String name, String password)
+	{
+		for (User u : users)
+		{
+			if (u.getName().equals(name) && u.getPassword().equals(password)) //do both name and pass match that of a user?
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns the user with the same name
+	 * @param name
+	 * @return the user, NULL IF NOT FOUND
+	 */
+	public static User getUser(String name)
+	{
+		for (User u : users)
+		{
+			if (u.getName().equals(name))
+			{
+				return u;
+			}
+		}
+		return null;
 	}
 }

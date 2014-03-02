@@ -1,24 +1,23 @@
 package com.example.banknote;
 
-import com.example.banknote.model.RegisterHandler;
+import com.example.banknote.presenter.NewAccountPresenter;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class Fin_Account_Reg extends Activity {
 	
-	private String accFullname;
-	private String accDisplayName;
-	private String accBalance;
-	private String accIntRate;
+	private NewAccountPresenter presenter;
+	
+	private String fullName;
+	private String displayName;
+	private String balance;
+	private String interestRate;
 
 	private EditText finacc_fulname;
 	private EditText finacc_displayname;
@@ -71,12 +70,16 @@ public class Fin_Account_Reg extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void attemptRegister(View view) {
+	public void attemptRegister(View view) 
+	{
 		
-		accFullname = finacc_fulname.getText().toString();
-		accDisplayName = finacc_displayname.getText().toString();
-		accBalance = finacc_balance.getText().toString();
-		accIntRate = finacc_interest_rate.getText().toString();
+		fullName = finacc_fulname.getText().toString();
+		displayName = finacc_displayname.getText().toString();
+		balance = finacc_balance.getText().toString();
+		interestRate = finacc_interest_rate.getText().toString();
+		
+		
+		
 		
 	// PRESETER OPERATION
 		

@@ -15,8 +15,12 @@ import com.example.banknote.model.LoginHandler;
  * Activity which displays a login screen to the user, offering registration as
  * well.
  */
-public class Login_screen extends Activity {
+public class Login_screen extends Activity 
+{
+	//Used to pass the name of user logging in to dashboard
+	public final static String USER = "com.example.banknote.presenter.USER";
 
+	
 	// Values for email and password at the time of the login attempt.
 	private String mEmail;
 	private String mPassword;
@@ -60,11 +64,13 @@ public class Login_screen extends Activity {
 		mPassword = mPasswordView.getText().toString();
 		
 		boolean loginSuccess = LoginHandler.attemptLogin(mEmail, mPassword); 
-		if(loginSuccess){
+		if(loginSuccess)
+		{
 			Intent successIntent = new Intent();
-			successIntent.setClassName("com.example.banknote", "com.example.banknote.LoginSuccess");
+			successIntent.setClassName("com.example.banknote", "com.example.banknote.Dashboard");
+			//attach the name of the user who has successfully logged in
+			successIntent.putExtra(USER, mEmail);
 			startActivity(successIntent); 
-			 
 		} 
 		else// stay on login screen and notify user with toast
 		{

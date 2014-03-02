@@ -1,18 +1,17 @@
 package com.example.banknote;
 
-import com.example.banknote.presenter.NewAccountPresenter;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import com.example.banknote.presenter.NewAccountPresenter;
 
 public class Fin_Account_Reg extends Activity {
 	
 	private NewAccountPresenter presenter;
+	View view;
 	
 	private String fullName;
 	private String displayName;
@@ -35,15 +34,7 @@ public class Fin_Account_Reg extends Activity {
 		finacc_displayname = (EditText) findViewById(R.id.finacc_displayname);
 		finacc_balance = (EditText) findViewById(R.id.finacc_balance);
 		finacc_interest_rate = (EditText) findViewById(R.id.finacc_interest_rate);
-		
-		findViewById(R.id.finacc_reg_button).setOnClickListener(
-				new View.OnClickListener() {
-					@Override
-					public void onClick(View view) { // this "view" is the button
-						attemptRegister(view);
-					}
-				});
-		
+				
 	}
 	
 	@Override
@@ -53,36 +44,35 @@ public class Fin_Account_Reg extends Activity {
 		return true;
 	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
-			NavUtils.navigateUpFromSameTask(this);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 	
-	public void attemptRegister(View view) 
+	public void notifyPresenterAddAccountButtonClick(View view) 
 	{
-		
 		fullName = finacc_fulname.getText().toString();
 		displayName = finacc_displayname.getText().toString();
 		balance = finacc_balance.getText().toString();
 		interestRate = finacc_interest_rate.getText().toString();
+		presenter.addAccountButtonClick();
+		this.view = view;
+	}
 		
-		
-		
-		
-	// PRESETER OPERATION
-		
+	public String getFullName() 
+	{
+		return fullName;
+	}
+
+	public String getDisplayName() 
+	{
+		return displayName;
+	}
+
+	public double getBalence() 
+	{
+		return Double.parseDouble(balance);
+	}
+
+	public double getInterestRate() 
+	{
+		return Double.parseDouble(interestRate);
 	}
 
 }

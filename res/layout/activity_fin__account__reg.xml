@@ -96,7 +96,7 @@
                 android:paddingLeft="32dp"
                 android:paddingRight="32dp"
                 android:text="@string/finacc_add_button"
-                android:onClick="attemptLogin" />
+                android:onClick="notifyPresenterAddAccountButtonClick" />
         </LinearLayout>
     </ScrollView>
 

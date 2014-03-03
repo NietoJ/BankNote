@@ -14,5 +14,21 @@
     <string name="prompt_username">Username</string>
     <string name="verify_password">Verify Password</string>
     <string name="title_activity_login_success">Login Success!</string>
+    <string name="title_activity_fin__account__reg">Fin_Account_Reg</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="dashboard">DASHBOARD</string>
+    <string name="add_account">New Account</string>
+    <string name="add_finacc_message">Adding new financial account:</string>
+    <string name="finacc_displayname">Display Name</string>
+    <string name="finacc_type1">VISA</string>
+    <string name="finacc_type2">MASTER</string>
+    <string name="finacc_type3">AMERICAN EXPRESS</string>
+    <string name="finacc_type4">PAYPAL</string>
+    <string name="finacc_name">Fullname</string>
+    <string name="finacc_fullname">Account Fullname</string>
+    <string name="finacc_balance">Balance ( eg. $100.00 )</string>
+    <string name="finacc_interest_rate">Interest Rate ( eg. 7.51% )</string>
+    <string name="finacc_add_button">Add Account</string>
+    <string name="view_accounts">View Accounts</string>
 
 </resources>

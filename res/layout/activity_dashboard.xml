@@ -25,7 +25,7 @@
                 android:paddingLeft="32dp"
                 android:paddingRight="32dp"
                 android:text="@string/add_account"
-                android:onClick="notifyPresenterNewAccountButtonClick"/>
+                android:onClick="goToFinAcc"/>
         
         <TextView
             android:id="@+id/dashboardtext"

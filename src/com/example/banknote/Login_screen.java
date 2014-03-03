@@ -70,6 +70,7 @@ public class Login_screen extends Activity
 			successIntent.setClassName("com.example.banknote", "com.example.banknote.Dashboard");
 			//attach the name of the user who has successfully logged in
 			successIntent.putExtra(USER, mEmail);
+		//	addAccountHandler.setup();
 			startActivity(successIntent); 
 		} 
 		else// stay on login screen and notify user with toast
@@ -77,7 +78,6 @@ public class Login_screen extends Activity
 			Context context = getApplicationContext();
 			CharSequence text = "Try again!";
 			int duration = Toast.LENGTH_SHORT;
-
 			Toast toast = Toast.makeText(context, text, duration);
 			toast.show();
 		} 

@@ -48,6 +48,10 @@
             android:name="com.example.banknote.Dashboard"
             android:label="@string/title_activity_dashboard" >
         </activity>
+        <activity
+            android:name="com.example.banknote.AddFinAccount"
+            android:label="@string/title_activity_add_fin_account" >
+        </activity>
     </application>
 
 </manifest>

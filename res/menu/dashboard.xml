@@ -1,6 +1,4 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-	
-    <item android:id="@id/view_accounts" android:visible="true" android:title="@string/view_accounts" android:enabled="true"/><item
+<menu xmlns:android="http://schemas.android.com/apk/res/android" ><item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"

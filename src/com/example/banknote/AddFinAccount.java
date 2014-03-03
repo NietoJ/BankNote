@@ -35,7 +35,7 @@ public class AddFinAccount extends Activity {
 		fullNameET = (EditText) findViewById(R.id.text_field_fullname);
 		balanceET = (EditText) findViewById(R.id.text_field_finacc_balance);
 		interestRateET = (EditText) findViewById(R.id.text_field_finacc_interest_rate);
-		addAccountHandler.setup();
+	//	addAccountHandler.setup();
 
 	}
 

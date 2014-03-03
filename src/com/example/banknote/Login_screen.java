@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.example.banknote.model.addAccountHandler;
 
 import com.example.banknote.model.LoginHandler;
 
@@ -70,7 +71,7 @@ public class Login_screen extends Activity
 			successIntent.setClassName("com.example.banknote", "com.example.banknote.Dashboard");
 			//attach the name of the user who has successfully logged in
 			successIntent.putExtra(USER, mEmail);
-		//	addAccountHandler.setup();
+			addAccountHandler.setup();
 			startActivity(successIntent); 
 		} 
 		else// stay on login screen and notify user with toast

@@ -30,5 +30,11 @@
     <string name="finacc_add_button">Add Account</string>
     <string name="view_accounts">View Accounts</string>
     <string name="title_activity_add_fin_account">AddFinAccount</string>
+    <string name="title_activity_add_trans_screen">AddTransScreen</string>
+    <string name="done">Done</string>
+    <string name="trans_new">New Transaction</string>
+    <string name="trans_amount_eg">e.g $10.80</string>
+    <string name="trans_add_instruction">Please input the details of the new transaction.</string>
+    <string name="trans_type">type of transaction</string>
 
 </resources>

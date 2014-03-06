@@ -52,6 +52,10 @@
             android:name="com.example.banknote.AddFinAccount"
             android:label="@string/title_activity_add_fin_account" >
         </activity>
+        <activity
+            android:name="com.example.banknote.AddTransScreen"
+            android:label="@string/title_activity_add_trans_screen" >
+        </activity>
     </application>
 
 </manifest>

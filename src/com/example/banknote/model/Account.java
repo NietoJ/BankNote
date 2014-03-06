@@ -1,5 +1,7 @@
 package com.example.banknote.model;
 
+import java.util.ArrayList;
+
 
 /**
  * Simulates a financial account
@@ -26,6 +28,10 @@ public class Account implements Comparable<Account>
 	 */
 	private double interestRate;
 	
+	/*
+	 * ArrayList of transaction 
+	 */
+	private ArrayList<Transaction> transactionList;
 	
 	
 	/**

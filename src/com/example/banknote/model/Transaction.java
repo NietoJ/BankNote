@@ -15,6 +15,10 @@ public class Transaction {
 	 */
 	private String type;
 	
+	
+	
+	private String description; 
+	
 	/*
 	 * A income / outcome for the transaction
 	 * true = income ; false = outcome
@@ -59,9 +63,10 @@ public class Transaction {
 	 * @param targetAccount: the financial account that the transaction belongs to.
 	 * @param targetUser: the user account that the transaction belongs to.
 	 */
-	public Transaction (String type, boolean isIncome, double amount, Account targetAccount, User targetUser ) {
+	public Transaction (String type, String description, boolean isIncome, double amount, Account targetAccount, User targetUser ) {
 		
 		this.setType(type);
+		this.setDescription(description); 
 		this.setIsIncome(isIncome);
 		this.setAmount(amount);	
 		this.setRecordedTime();
@@ -69,6 +74,10 @@ public class Transaction {
 		this.setTargetUser(targetUser);
 	}
 	
+	private void setDescription(String description) {
+		this.description = description;
+	}
+
 	/**
 	 * 
 	 * @param type The type of the transaction
@@ -131,6 +140,16 @@ public class Transaction {
 	{
 		return this.type;
 	}
+	
+	/**
+	 * 
+	 * @return (String) the description of the transaction
+	 */
+	public String getDescription()
+	{
+		return this.description;
+	}
+
 	
 	/**
 	 * 

@@ -1,6 +1,5 @@
 package com.example.banknote;
 
-import com.example.banknote.model.Singleton;
 import com.example.banknote.model.addAccountHandler;
 
 import android.app.Activity;

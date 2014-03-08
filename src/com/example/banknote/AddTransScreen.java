@@ -25,12 +25,17 @@ public class AddTransScreen extends Activity {
 	
 	private String selectedType;
 	private String amount;
+	private String description; 
+	
 	private boolean isIncome = false;
 	
 	private EditText amountET;
+	private EditText descriptionET; 
 	
 	private Spinner spinner;
 	private Button btnAddTrans;
+	
+	private boolean isRadioChecked = false; 
 	
 	ArrayAdapter<CharSequence> adapter;
 	
@@ -43,6 +48,7 @@ public class AddTransScreen extends Activity {
 		spinner = (Spinner) findViewById(R.id.types_spinner);
 		amountET = (EditText) findViewById(R.id.amount_text_field);
 		btnAddTrans = (Button) findViewById(R.id.add_transaction_button);
+		descriptionET = (EditText) findViewById(R.id.description_editext); 
 		
 		/*
 		 * selectedType Spinner
@@ -96,8 +102,6 @@ public class AddTransScreen extends Activity {
 
 	}
 	
-	
-	
 	public void onRadioButtonClicked(View view) {
 	    // Is the button now checked?
 	    boolean checked = ((RadioButton) view).isChecked();
@@ -112,6 +116,7 @@ public class AddTransScreen extends Activity {
 	            if (checked){
 	                // income are the best
 	            	isIncome = true;
+	            	isRadioChecked = true; 
 	            	text = "INCOME";
 	            	spinnerUpdate();
 	            }
@@ -120,6 +125,7 @@ public class AddTransScreen extends Activity {
 	            if (checked){
 	                // outcome rule
 	            	isIncome = false;
+	            	isRadioChecked = true; 
 	            	text = "OUTCOME";
 	            	spinnerUpdate();
 	            }
@@ -133,6 +139,7 @@ public class AddTransScreen extends Activity {
 		// TODO Auto-generated method stub
  
         amount = amountET.getText().toString();
+        description = descriptionET.getText().toString(); 
         
         //NOTICE
         //Account and User from Singleton (Now, they are null initialized objects)
@@ -141,7 +148,7 @@ public class AddTransScreen extends Activity {
 		
 		// create new transaction
         addTransactionHandler handler = new addTransactionHandler();
-        handler.addNewTrans(selectedType, isIncome, amount, targetAccount, targetUser);
+        handler.addNewTrans(selectedType, description, isIncome, amount, targetAccount, targetUser);
         
         Context context = getApplicationContext();
 		CharSequence text = "Transaction" + selectedType + " " + isIncome + " " + amount;

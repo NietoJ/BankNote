@@ -13,6 +13,12 @@ public class User
 	private String name;
 	private String password;
 	private ArrayList<Account> accounts;
+
+	/*
+	 * ArrayList of transaction 
+	 */
+	private ArrayList<Transaction> transactionList;
+	
 	
 	/**
 	 * Creates a new user with a name and password

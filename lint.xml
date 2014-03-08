@@ -3,4 +3,7 @@
     <issue id="NewApi">
         <ignore path="res/layout/activity_register_screen.xml" />
     </issue>
+    <issue id="UselessParent">
+        <ignore path="res/layout/activity_add_trans_screen.xml" />
+    </issue>
 </lint>

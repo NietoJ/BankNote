@@ -59,7 +59,7 @@ public class addAccountHandler
 	}
 	
 
-	public static void addAccount(String fullName, String displayName, String balance, String interestRate)
+	public static Account addAccount(String fullName, String displayName, String balance, String interestRate)
 	{
 		Account a = new Account();
 		a.setFullName(fullName);
@@ -75,6 +75,7 @@ public class addAccountHandler
 			a.setBalance(irDouble);
 		}
 		accounts.add(a);
+		return a;
 	}
 	
 }

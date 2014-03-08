@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class AddFinAccount extends Activity {
-
+	
 	private String displayName = "";
 	private String fullName = "";
 	private String balance ="";
@@ -72,7 +72,6 @@ public class AddFinAccount extends Activity {
 		}
 		else
 		{
-			addAccountHandler.addAccount(fullName, displayName, balance, interestRate);
 			text = "New Account Created!";
 		}
 		

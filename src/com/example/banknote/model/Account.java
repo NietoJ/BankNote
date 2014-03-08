@@ -1,5 +1,7 @@
 package com.example.banknote.model;
 
+import java.util.ArrayList;
+
 
 /**
  * Simulates a financial account
@@ -26,7 +28,18 @@ public class Account implements Comparable<Account>
 	 */
 	private double interestRate;
 	
+	/*
+	 * ArrayList of transaction
+	 * NOTICE: This variable may be deleted after finishing History class 
+	 * @Editted by Nghia Huynh
+	 */
+	private ArrayList<Transaction> transactionList;
 	
+	/*
+	 * A History object that store transaction information. 
+	 * @Editted by Nghia Huynh
+	 */
+	private History transHistory;
 	
 	/**
 	 * 

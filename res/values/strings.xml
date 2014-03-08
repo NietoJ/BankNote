@@ -36,5 +36,6 @@
     <string name="trans_amount_eg">e.g $10.80</string>
     <string name="trans_add_instruction">Please input the details of the new transaction.</string>
     <string name="trans_type">type of transaction</string>
-
+    <string name="income">INCOME</string>
+    <string name="outcome">OUTCOME</string>
 </resources>

@@ -26,6 +26,15 @@
                 android:paddingRight="32dp"
                 android:text="@string/add_account"
                 android:onClick="goToFinAcc"/>
+        <Button
+                android:id="@+id/new_transaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:text="@string/trans_new"
+                android:onClick="goToFinAcc"/>
         
         <TextView
             android:id="@+id/dashboardtext"

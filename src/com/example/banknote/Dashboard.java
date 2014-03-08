@@ -39,7 +39,11 @@ public class Dashboard extends Activity
 		intent.setClassName("com.example.banknote", "com.example.banknote.AddFinAccount");
 		startActivity(intent);
 	}
-
 	
+	public void goToAddTransaction(View view){
+		Intent intent = new Intent();
+		intent.setClassName("com.example.banknote", "com.example.banknote.AddTransScreen");
+		startActivity(intent);
+	}
 
 }

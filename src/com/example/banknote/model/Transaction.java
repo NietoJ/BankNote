@@ -16,6 +16,12 @@ public class Transaction {
 	private String type;
 	
 	/*
+	 * A income / outcome for the transaction
+	 * true = income ; false = outcome
+	 */
+	private boolean isIncome;
+	
+	/*
 	 * The amount that deposit or withdraw from the account
 	 * Note:
 	 * 		negative amount for outcome
@@ -52,9 +58,10 @@ public class Transaction {
 	 * @param targetAccount: the financial account that the transaction belongs to.
 	 * @param targetUser: the user account that the transaction belongs to.
 	 */
-	public Transaction ( String type, double amount, Account targetAccount, User targetUser ) {
+	public Transaction (String type, boolean isIncome, double amount, Account targetAccount, User targetUser ) {
 		
 		this.setType(type);
+		this.setIsIncome(isIncome);
 		this.setAmount(amount);	
 		this.setRecordedTime();
 		this.setTargetAccount(targetAccount);
@@ -68,6 +75,15 @@ public class Transaction {
 	public void setType(String type)
 	{
 		this.type = type;
+	}
+	
+	/**
+	 * 
+	 * @param type income/outcome of the transaction
+	 */
+	public void setIsIncome(boolean isIncome)
+	{
+		this.isIncome = isIncome;
 	}
 	
 	/**
@@ -113,6 +129,16 @@ public class Transaction {
 	public String getType()
 	{
 		return this.type;
+	}
+	
+	/**
+	 * 
+	 * @return (boolean) the income/outcome of the transaction
+	 * true = income / false = outcome
+	 */
+	public boolean getIsIncome()
+	{
+		return this.isIncome;
 	}
 	
 	/**

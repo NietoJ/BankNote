@@ -54,6 +54,7 @@ public class Transaction {
 	/**
 	 * Creates a transaction with initialized variables
 	 * @param type: type of the transaction
+	 * @param isIncome: income/outcome
 	 * @param amount: the amount of transaction
 	 * @param targetAccount: the financial account that the transaction belongs to.
 	 * @param targetUser: the user account that the transaction belongs to.

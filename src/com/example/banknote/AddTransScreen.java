@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,11 +25,14 @@ public class AddTransScreen extends Activity {
 	
 	private String selectedType;
 	private String amount;
-	private boolean isIncome;
+	private boolean isIncome = false;
 	
 	private EditText amountET;
 	private Spinner spinner;
 	private Button btnAddTrans;
+	
+	ArrayAdapter<CharSequence> adapter;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +47,17 @@ public class AddTransScreen extends Activity {
 		 * selectedType Spinner
 		 */
 		
-		// Create an ArrayAdapter using the string array and a default spinner layout
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-		        R.array.transaction_type_array, android.R.layout.simple_spinner_item);
+		//ArrayAdapter<CharSequence> adapter;
+		if (isIncome) {
+			// Create an ArrayAdapter using the string array and a default spinner layout
+			adapter = ArrayAdapter.createFromResource(this,
+		        R.array.transaction_incometype_array, android.R.layout.simple_spinner_item);
+		} else {
+			// Create an ArrayAdapter using the string array and a default spinner layout
+			adapter = ArrayAdapter.createFromResource(this,
+			        R.array.transaction_outcometype_array, android.R.layout.simple_spinner_item);
+			
+		}
 		
 		// Specify the layout to use when the list of choices appears
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -59,10 +71,10 @@ public class AddTransScreen extends Activity {
         /*
 		 * addButton click Listener 
 		 */
-        btnAddTrans.setOnClickListener(
+        findViewById(R.id.add_transaction_button).setOnClickListener(
 				new View.OnClickListener() {
 					@Override
-					public void onClick(View view) { // this "view" is the button
+					public void onClick(View view) { 
 						attemptAddTrans(view);
 						
 					}
@@ -77,11 +89,39 @@ public class AddTransScreen extends Activity {
 		selectedType = selectTypeListener.getSelectedItem();
 	}
 	
+	
+	
+	public void onRadioButtonClicked(View view) {
+	    // Is the button now checked?
+	    boolean checked = ((RadioButton) view).isChecked();
+	    
+	    Context context = getApplicationContext();
+	    CharSequence text = "";
+	    int duration = Toast.LENGTH_SHORT;
+	    
+	    // Check which radio button was clicked
+	    switch(view.getId()) {
+	        case R.id.radio_income:
+	            if (checked){
+	                // income are the best
+	            	isIncome = true;
+	            	text = "INCOME";
+	            }
+	            break;
+	        case R.id.radio_outcome:
+	            if (checked){
+	                // outcome rule
+	            	isIncome = false;
+	            	text = "OUTCOME";
+	            }
+	            break;
+	    }
+	    Toast toast = Toast.makeText(context, text, duration);
+	    toast.show();
+	}
+	
 	public void attemptAddTrans(View view) {
 		// TODO Auto-generated method stub
-		
-		// Radio checked income / outcome
-        onRadioButtonClicked(view);
  
         amount = amountET.getText().toString();
         
@@ -93,26 +133,14 @@ public class AddTransScreen extends Activity {
 		// create new transaction
         addTransactionHandler handler = new addTransactionHandler();
         handler.addNewTrans(selectedType, isIncome, amount, targetAccount, targetUser);
+        
+        Context context = getApplicationContext();
+		CharSequence text = "Transaction" + selectedType + " " + isIncome + " " + amount;
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast toast = Toast.makeText(context, text, duration);
+		toast.show();
 		
-	}
-	
-	public void onRadioButtonClicked(View view) {
-	    // Is the button now checked?
-	    boolean checked = ((RadioButton) view).isChecked();
-	    
-	    // Check which radio button was clicked
-	    switch(view.getId()) {
-	        case R.id.radio_income:
-	            if (checked)
-	                // income are the best
-	            	isIncome = true;
-	            break;
-	        case R.id.radio_outcome:
-	            if (checked)
-	                // outcome rule
-	            	isIncome = false;
-	            break;
-	    }
 	}
 
 	@Override

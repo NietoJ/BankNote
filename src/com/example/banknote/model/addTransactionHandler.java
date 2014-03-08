@@ -1,10 +1,13 @@
 package com.example.banknote.model;
 
+import android.content.Context;
+import android.widget.Toast;
+
 public class addTransactionHandler {
 	
 	private Transaction newTrans;
 	
-	public void addNewTrans ( String type, boolean isIncome, String amount, Account targetAccount, User targetUser ) {
+	public void addNewTrans (String type, boolean isIncome, String amount, Account targetAccount, User targetUser ) {
 		
 		double transAmount = Double.parseDouble(amount);
 		
@@ -13,16 +16,12 @@ public class addTransactionHandler {
 			transAmount = (-1)* transAmount;
 		}
 		
-		Transaction newTrans = null;
-		
-		newTrans.setType(type);
-		newTrans.setIsIncome(isIncome);
-		newTrans.setRecordedTime();
-		newTrans.setAmount(transAmount);
-		newTrans.setTargetAccount(targetAccount);
-		newTrans.setTargetUser(targetUser);
-		
-		// Transaction newTrans = new Transaction ( type, transAmount, targetAccount, targetUser );
+	 newTrans = new Transaction (type, isIncome, transAmount, targetAccount, targetUser);
+	 
+	}
+	
+	public boolean isValid(){
+		return false;
 	}
 	
 }

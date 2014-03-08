@@ -38,4 +38,7 @@
     <string name="trans_type">type of transaction</string>
     <string name="income">INCOME</string>
     <string name="outcome">OUTCOME</string>
+    <string name="title_activity_financial_account_main">FinancialAccountMain</string>
+    <string name="view_acc">View Account</string>
+    <string name="add_trans">Add Transaction</string>
 </resources>

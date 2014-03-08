@@ -139,6 +139,7 @@ public class AddTransScreen extends Activity {
 		// TODO Auto-generated method stub
  
         amount = amountET.getText().toString();
+        
         description = descriptionET.getText().toString(); 
         
         //NOTICE

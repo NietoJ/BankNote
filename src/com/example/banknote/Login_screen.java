@@ -8,8 +8,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.example.banknote.model.addAccountHandler;
 
+import com.example.banknote.model.addAccountHandler;
 import com.example.banknote.model.LoginHandler;
 
 /**

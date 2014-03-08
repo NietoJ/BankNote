@@ -28,6 +28,7 @@ public class AddTransScreen extends Activity {
 	private boolean isIncome = false;
 	
 	private EditText amountET;
+	
 	private Spinner spinner;
 	private Button btnAddTrans;
 	
@@ -46,24 +47,7 @@ public class AddTransScreen extends Activity {
 		/*
 		 * selectedType Spinner
 		 */
-		
-		//ArrayAdapter<CharSequence> adapter;
-		if (isIncome) {
-			// Create an ArrayAdapter using the string array and a default spinner layout
-			adapter = ArrayAdapter.createFromResource(this,
-		        R.array.transaction_incometype_array, android.R.layout.simple_spinner_item);
-		} else {
-			// Create an ArrayAdapter using the string array and a default spinner layout
-			adapter = ArrayAdapter.createFromResource(this,
-			        R.array.transaction_outcometype_array, android.R.layout.simple_spinner_item);
-			
-		}
-		
-		// Specify the layout to use when the list of choices appears
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		
-		// Apply the adapter to the spinner
-		spinner.setAdapter(adapter);
+		spinnerUpdate();
 		
 		// Spinner item selection Listener  
         addListenerOnSpinnerItemSelection();
@@ -82,11 +66,34 @@ public class AddTransScreen extends Activity {
 	}
 
 
+	private void spinnerUpdate() {
+		// TODO Auto-generated method stub
+		//ArrayAdapter<CharSequence> adapter;
+				if (isIncome) {
+					// Create an ArrayAdapter using the string array and a default spinner layout
+					adapter = ArrayAdapter.createFromResource(this,
+				        R.array.transaction_incometype_array, android.R.layout.simple_spinner_item);
+				} else {
+					// Create an ArrayAdapter using the string array and a default spinner layout
+					adapter = ArrayAdapter.createFromResource(this,
+					        R.array.transaction_outcometype_array, android.R.layout.simple_spinner_item);
+					
+				}
+				
+				// Specify the layout to use when the list of choices appears
+				adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+				
+				// Apply the adapter to the spinner
+				spinner.setAdapter(adapter);
+	}
+
+
 	public void addListenerOnSpinnerItemSelection() {
 		// TODO Auto-generated method stub
 		CustomOnItemSelectedListener selectTypeListener = new CustomOnItemSelectedListener();
 		spinner.setOnItemSelectedListener(selectTypeListener);
 		selectedType = selectTypeListener.getSelectedItem();
+
 	}
 	
 	
@@ -106,6 +113,7 @@ public class AddTransScreen extends Activity {
 	                // income are the best
 	            	isIncome = true;
 	            	text = "INCOME";
+	            	spinnerUpdate();
 	            }
 	            break;
 	        case R.id.radio_outcome:
@@ -113,6 +121,7 @@ public class AddTransScreen extends Activity {
 	                // outcome rule
 	            	isIncome = false;
 	            	text = "OUTCOME";
+	            	spinnerUpdate();
 	            }
 	            break;
 	    }

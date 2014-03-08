@@ -1,5 +1,6 @@
 package com.example.banknote;
 
+import com.example.banknote.model.Singleton;
 import com.example.banknote.model.addAccountHandler;
 
 import android.app.Activity;
@@ -11,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class AddFinAccount extends Activity {
-
+	
 	private String displayName = "";
 	private String fullName = "";
 	private String balance ="";
@@ -72,7 +73,6 @@ public class AddFinAccount extends Activity {
 		}
 		else
 		{
-			addAccountHandler.addAccount(fullName, displayName, balance, interestRate);
 			text = "New Account Created!";
 		}
 		

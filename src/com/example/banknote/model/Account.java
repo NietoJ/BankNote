@@ -23,17 +23,12 @@ public class Account implements Comparable<Account>
 	 * current account balance
 	 */
 	private double balance;
+	
 	/*
 	 * Annual interest rate (optional, should default to 0)
 	 */
 	private double interestRate;
-	
-	/*
-	 * ArrayList of transaction
-	 * NOTICE: This variable may be deleted after finishing History class 
-	 * @Editted by Nghia Huynh
-	 */
-	private ArrayList<Transaction> transactionList;
+
 	
 	/*
 	 * A History object that store transaction information. 

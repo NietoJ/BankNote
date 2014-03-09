@@ -2,7 +2,7 @@ package com.example.banknote.model;
 
 import java.util.LinkedList;
 
-public class addAccountHandler 
+public class AddAccountHandler 
 {
 	private static LinkedList<Account> accounts;
 	

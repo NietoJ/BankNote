@@ -4,7 +4,7 @@ import com.example.banknote.R;
 import com.example.banknote.model.Account;
 import com.example.banknote.model.Transaction;
 import com.example.banknote.model.User;
-import com.example.banknote.model.addTransactionHandler;
+import com.example.banknote.model.AddTransactionHandler;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -142,21 +142,47 @@ public class AddTransScreen extends Activity {
         amount = amountET.getText().toString();
         description = descriptionET.getText().toString(); 
         
+        description = descriptionET.getText().toString(); 
+        
         //NOTICE
         //Account and User from Singleton (Now, they are null initialized objects)
         Account targetAccount = null;
         User targetUser = null;
-		
-		// create new transaction
-        addTransactionHandler handler = new addTransactionHandler();
-        handler.addNewTrans(selectedType, description, isIncome, amount, targetAccount, targetUser);
         
+        //Toast constructor
         Context context = getApplicationContext();
-		CharSequence text = "Transaction" + selectedType + " " + isIncome + " " + amount;
-		int duration = Toast.LENGTH_SHORT;
+        CharSequence text = "";
+        
+        // checking if radio buttons is checked
+        if ( isRadioChecked ) {
+        	// create new transaction
+            AddTransactionHandler handler = new AddTransactionHandler();
+          
+            // Checking if the amount has the valid input type
+            if ( handler.isValidDescription(description))
+            {
+            	if (handler.isValidAmount(amount)){
+            		
+            		handler.addNewTrans(selectedType, description, isIncome, amount, targetAccount, targetUser);
+            		
+             		text = "Transaction" + selectedType + " " + isIncome + " " + amount;
+             		
+            	} else {
+            		text = "Please check the input amount!";
+            	}
+                
+            } else{
+            	text = "A description is needed!";
+            }
+           
+        } else {
+        	text = "Please check Income or Outcome!";
+        }
+		
+        int duration = Toast.LENGTH_SHORT;
 
-		Toast toast = Toast.makeText(context, text, duration);
-		toast.show();
+ 		Toast toast = Toast.makeText(context, text, duration);
+ 		toast.show();
 		
 	}
 

@@ -1,7 +1,8 @@
 package com.example.banknote.view;
 
+
 import com.example.banknote.R;
-import com.example.banknote.model.addAccountHandler;
+import com.example.banknote.model.AddAccountHandler;
 
 import android.app.Activity;
 import android.content.Context;
@@ -57,17 +58,17 @@ public class AddFinAccount extends Activity {
 
 		CharSequence text;
 		
-		if (!addAccountHandler.isValidName(fullName))
+		if (!AddAccountHandler.isValidName(fullName))
 		{
 			text = "Invalid Full Name";
 		}
 		
-		else if (addAccountHandler.nameAlreadyExists(fullName, displayName))
+		else if (AddAccountHandler.nameAlreadyExists(fullName, displayName))
 		{
 			text = "Account with that name already exists.";
 		}
 
-		else if (!addAccountHandler.isValidInterestRate(interestRate))
+		else if (!AddAccountHandler.isValidInterestRate(interestRate))
 		{
 			text = "Interest rate cannot be negative";
 		}

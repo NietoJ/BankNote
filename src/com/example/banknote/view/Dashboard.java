@@ -42,7 +42,7 @@ public class Dashboard extends Activity
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) { 
-						text = "com.example.banknote.FinancialAccountMain";
+						text = "com.example.banknote.view.FinancialAccountMain";
 						goNextActivity(view);
 					}
 				});
@@ -51,7 +51,7 @@ public class Dashboard extends Activity
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) { 
-						text = "com.example.banknote.AddFinAccount";
+						text = "com.example.banknote.view.AddFinAccount";
 						goNextActivity(view);
 					}
 				});

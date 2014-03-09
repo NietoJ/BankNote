@@ -32,7 +32,7 @@ public class FinancialAccountMain extends Activity {
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) { 
-						text = "com.example.banknote.AddTransScreen";
+						text = "com.example.banknote.view.AddTransScreen";
 						goNextActivity(view);
 					}
 				});

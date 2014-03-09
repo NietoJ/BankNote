@@ -69,9 +69,9 @@ public class Login_screen extends Activity
 		if(loginSuccess)
 		{
 			Intent successIntent = new Intent();
-			successIntent.setClassName("com.example.banknote", "com.example.banknote.Dashboard");
+			successIntent.setClassName("com.example.banknote", "com.example.banknote.view.Dashboard");
 			//attach the name of the user who has successfully logged in
-			successIntent.putExtra(USER, mEmail);
+			//successIntent.putExtra(USER, mEmail);
 			AddAccountHandler.setup();
 			startActivity(successIntent); 
 		} 

@@ -1,4 +1,4 @@
-package com.example.banknote;
+package com.example.banknote.view;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.banknote.R;
 import com.example.banknote.model.RegisterHandler;
 
 public class Register_screen extends Activity {

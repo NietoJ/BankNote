@@ -45,7 +45,7 @@ public class UserTest
 	@Test
 	public void setSetPassword()
 	{
-		b.setPasswod("5678");
+		b.setPassword("5678");
 		assertTrue(b.getPassword().equals("5678"));
 	}
 }

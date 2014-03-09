@@ -1,4 +1,6 @@
-package com.example.banknote;
+package com.example.banknote.view;
+
+import com.example.banknote.R;
 
 import android.app.Activity;
 import android.content.Intent;

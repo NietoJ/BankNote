@@ -71,7 +71,7 @@ public class User
 	 * Sets the password of the user
 	 * @param password
 	 */
-	public void setPasswod(String password)
+	public void setPassword(String password)
 	{
 		this.password = password;		
 	}

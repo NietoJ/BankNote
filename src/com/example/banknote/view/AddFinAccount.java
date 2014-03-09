@@ -1,5 +1,6 @@
-package com.example.banknote;
+package com.example.banknote.view;
 
+import com.example.banknote.R;
 import com.example.banknote.model.addAccountHandler;
 
 import android.app.Activity;

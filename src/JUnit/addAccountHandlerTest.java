@@ -13,13 +13,13 @@ public class addAccountHandlerTest {
 	@Test
 	public void testIsValidName() 
 	{
-		//AddAccountHandler.setup();
+		AddAccountHandler.setup();
 		assertFalse(AddAccountHandler.isValidName(""));
 	}
 
 	@Test
 	public void testNameAlreadyExists() {
-		//AddAccountHandler.setup();
+		AddAccountHandler.setup();
 		assertFalse(AddAccountHandler.nameAlreadyExists("",""));
 		AddAccountHandler.addAccount("peter", "pete", "1", "1");
 		assertTrue(AddAccountHandler.nameAlreadyExists("peter","pete"));
@@ -29,7 +29,7 @@ public class addAccountHandlerTest {
 	@Test
 	public void testIsValidInterestRate() 
 	{
-		//AddAccountHandler.setup();
+		AddAccountHandler.setup();
 		assertTrue(AddAccountHandler.isValidInterestRate("2.0"));
 		assertFalse(AddAccountHandler.isValidInterestRate("-2.1"));
 		assertTrue(AddAccountHandler.isValidInterestRate(""));
@@ -40,7 +40,7 @@ public class addAccountHandlerTest {
 	@Test
 	public void testAddAccount() 
 	{
-		//AddAccountHandler.setup();
+		AddAccountHandler.setup();
 		AddAccountHandler.addAccount("bob", "b", "1.1", "2.2");
 		AddAccountHandler.addAccount("bob", "b", "", "");
 	}

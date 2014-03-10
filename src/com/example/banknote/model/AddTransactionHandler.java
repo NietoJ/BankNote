@@ -2,14 +2,13 @@ package com.example.banknote.model;
 
 import android.content.Context;
 import android.widget.Toast;
-
 import java.util.regex.*;
 
 public class AddTransactionHandler {
 	
 	private Transaction newTrans;
 	
-	public void addNewTrans (String type, String description, boolean isIncome, String amount) {
+	public void addNewTrans (String type, String description, boolean isIncome, String amount, Account targetAccount, User targetUser ) {
 		
 		double transAmount = Double.parseDouble(amount);
 		
@@ -17,9 +16,8 @@ public class AddTransactionHandler {
 		if (!isIncome) {
 			transAmount = (-1)* transAmount;
 		}
-	
-		// create new transaction by defined instructors
-	 newTrans = new Transaction (type, description, isIncome, transAmount, AccountSingle.getCurrentAccount(), UserSingle.getCurrentUser());
+		
+	 newTrans = new Transaction (type, description, isIncome, transAmount, targetAccount, targetUser);
 	}
 	
 	public boolean isValidDescription(String name)

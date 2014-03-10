@@ -12,7 +12,17 @@ public class LoginHandler
 	{
 		// Adds default admin account to list
 		setUpDefaultCredentials();
-		return CredentialStore.containsNameAndPassword(name, password);
+		if (CredentialStore.containsNameAndPassword(name, password))
+		{
+			UserSingle.getInstance();
+			User u = CredentialStore.getUser(name);
+			UserSingle.setCurrentUser(u);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public static User getUser(String name)
@@ -20,4 +30,3 @@ public class LoginHandler
 		return CredentialStore.getUser(name);
 	}
 }
-

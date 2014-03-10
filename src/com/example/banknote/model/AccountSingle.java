@@ -3,7 +3,8 @@ package com.example.banknote.model;
 public class AccountSingle {
 	
 	private static AccountSingle instance;
-	private static Account currentAccount;
+	
+	private Account currentAccount;
 	
 	 public AccountSingle(){
 		 
@@ -20,12 +21,12 @@ public class AccountSingle {
 		 return instance;
 	 }
 	 
-	 public static Account getCurrentAccount(){
+	 public Account getCurrentAccount(){
 		 return currentAccount;
 	 }
 	 
-	 public static void setCurrentAccount(Account Account){
-		 currentAccount = Account;
+	 public void setCurrentAccount(Account account){
+		 currentAccount = account;
 	 }
 
 }

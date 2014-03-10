@@ -20,9 +20,9 @@ public class CustomOnItemSelectedListener implements OnItemSelectedListener {
 		// TODO Auto-generated method stub
 		selectedItem = parent.getItemAtPosition(pos).toString();
 		
-		//Toast.makeText(parent.getContext(), 
-        //        "On Item Select : \n" + parent.getItemAtPosition(pos).toString(),
-        //        Toast.LENGTH_LONG).show();
+		Toast.makeText(parent.getContext(), 
+                "On Item Select : \n" + parent.getItemAtPosition(pos).toString(),
+                Toast.LENGTH_LONG).show();
 
 	}
 
@@ -30,6 +30,10 @@ public class CustomOnItemSelectedListener implements OnItemSelectedListener {
 	public void onNothingSelected(AdapterView<?> parent) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public String getSelectedItem(){
+		return selectedItem;
 	}
 
 }

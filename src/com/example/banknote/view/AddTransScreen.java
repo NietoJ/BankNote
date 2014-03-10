@@ -79,7 +79,11 @@ public class AddTransScreen extends Activity {
 				});
 	}
 
-
+	/*
+	 * Initialize the options in spinner with string array list of types
+	 * isIncome = true : transaction_incometype_array
+	 * isIncome = false: transaction_outcometype_array
+	 */
 	private void spinnerUpdate() {
 		// TODO Auto-generated method stub
 		//ArrayAdapter<CharSequence> adapter;

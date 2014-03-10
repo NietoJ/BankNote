@@ -36,6 +36,13 @@
                 android:text="@string/view_acc"
                 android:onClick="goToFinAcc"/>
         
+        <Spinner
+            android:id="@+id/account_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:prompt="@string/trans_type" />
+        
         <TextView
             android:id="@+id/dashboardtext"
             android:layout_width="match_parent"

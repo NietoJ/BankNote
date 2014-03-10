@@ -1,19 +1,37 @@
 package com.example.banknote.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.banknote.R;
+import com.example.banknote.model.Account;
+import com.example.banknote.model.UserSingle;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 public class Dashboard extends Activity 
 {
 	private Button btnViewAcc;
 	private Button btnAddFinAcc;
+	private Spinner spinner;
 	private String text = "";
+	
+	
+	//Spinner helper to retrieve the selected Account as String
+	private String selectedAccount = "";
+	private int selectedAccountIndex = 0;
+	
+	
+	List<String> list = new ArrayList<String>();
+	ArrayAdapter<String> adapter;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -24,7 +42,52 @@ public class Dashboard extends Activity
 
 		btnViewAcc = (Button) findViewById(R.id.view_fin_account);
 		btnAddFinAcc = (Button) findViewById(R.id.finacc_add_button);
+		
+		//Spinnner
+		spinner = (Spinner) findViewById(R.id.account_spinner);
+		
+		/*
+		 * selectedType Spinner
+		 */
+		spinnerUpdate();
+		
+		// Spinner item selection Listener  
+        addListenerOnSpinnerItemSelection();
 	
+	}
+	
+	// Initialize the options in spinner with Accounts List in User
+	private void spinnerUpdate() {
+		// TODO Auto-generated method stub
+		
+		// Initialize the list with all the accounts in user by DisplayName
+		
+		for ( Account a : UserSingle.getCurrentUser().getAccounts() ) {
+			list.add(a.getDisplayName());
+		}
+		
+		
+		// Create an ArrayAdapter using the string array and a default spinner layout
+		adapter = new ArrayAdapter<String>
+         (this, android.R.layout.simple_spinner_item,list);
+				
+		// Specify the layout to use when the list of choices appears
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+		// Apply the adapter to the spinner
+		spinner.setAdapter(adapter);
+	}
+	
+	public void addListenerOnSpinnerItemSelection() {
+		// TODO Auto-generated method stub
+		CustomOnItemSelectedListener selectTypeListener = new CustomOnItemSelectedListener();
+		spinner.setOnItemSelectedListener(selectTypeListener);
+		
+		// Update the selectedAccount with the string of DisplayName
+		CustomOnItemSelectedListener.getSelected(selectedAccount);
+		
+		selectedAccountIndex =list.indexOf(selectedAccount) ;
+
 	}
 	
 
@@ -52,6 +115,8 @@ public class Dashboard extends Activity
 						goNextActivity(view);
 					}
 				});
+		
+		
 		
 		return true;
 	}

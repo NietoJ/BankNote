@@ -136,6 +136,23 @@ public class Account implements Comparable<Account>
 		return interestRate;
 	}
 	
+	/**
+	 * 
+	 * @return the History
+	 */
+	public History getHistory()
+	{
+		return transHistory;
+	}
+	
+	/**
+	 * Method that update Balance after the new transaction added
+	 * 
+	 */
+	public void updateBalance(){
+		balance += transHistory.getLastTransaction().getAmount();
+	}
+	
 	
 	/**
 	 * Compares the balance of this account to another
@@ -147,4 +164,6 @@ public class Account implements Comparable<Account>
 		Double difference = balance - other.getBalance();
 		return difference.compareTo(0.0);
 	}
+	
+
 }

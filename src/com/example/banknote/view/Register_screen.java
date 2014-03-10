@@ -90,7 +90,7 @@ public class Register_screen extends Activity {
 		
 		if (mPassword1.equals(mPassword2) && RegisterHandler.store(mEmail, mPassword1)) {
 			Intent successIntent = new Intent();
-			successIntent.setClassName("com.example.banknote", "com.example.banknote.Login_screen");
+			successIntent.setClassName("com.example.banknote", "com.example.banknote.view.Login_screen");
 			startActivity(successIntent); 
 		} else {
 			Context context = getApplicationContext();

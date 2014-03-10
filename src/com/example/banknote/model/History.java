@@ -3,6 +3,9 @@ package com.example.banknote.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
+import android.widget.Toast;
+
 /**
  * History class contain the list of transactions associate with financial account or a user account.
  * @author Nghia Huynh
@@ -23,15 +26,29 @@ public class History {
 	
 	/**
 	 * Adds new transaction in the the Transaction List in the History
-	 * @param newTrans: the new transaction added to the list
-	 * @return transAmount (double): the amount of the added transaction
+	 * @param newTrans: the new transaction added to the list.
 	 */
-	private double addNewTrans (Transaction newTrans) {
+	public void addNewTrans (Transaction newTrans) {
+		// add newTrans to the Transaction List
 		transList.add(newTrans);
-		return newTrans.getAmount();
 		
+		//Update the Balance in current account
+		AccountSingle.getCurrentAccount().updateBalance();
 	}
 	
+	/**
+	 * when account created, adds first transaction in the List as Initial Balance.
+	 */
+	public void setIntBalacce (double amount) {
+		Transaction initialTransaction = new Transaction ("Initial Balance", "Initial Balance", true, amount, AccountSingle.getCurrentAccount(), UserSingle.getCurrentUser());
+		transList.add(initialTransaction);
+	}
+	
+	
+	public Transaction getLastTransaction(){
+		int numOfTrans = transList.size();
+		return transList.get(numOfTrans - 1);
+	}
 	
 	
 }

@@ -33,7 +33,7 @@
     <string name="title_activity_add_trans_screen">AddTransScreen</string>
     <string name="done">Done</string>
     <string name="trans_new">New Transaction</string>
-    <string name="trans_amount_eg">e.g $10.80</string>
+    <string name="trans_amount_eg">Amount (e.g 10.80)</string>
     <string name="trans_add_instruction">Please input the details of the new transaction.</string>
     <string name="trans_type">type of transaction</string>
     <string name="income">INCOME</string>
@@ -42,4 +42,5 @@
     <string name="view_acc">View Account</string>
     <string name="add_trans">Add Transaction</string>
     <string name="trans_description">Description</string>
+    <string name="add">Add</string>
 </resources>

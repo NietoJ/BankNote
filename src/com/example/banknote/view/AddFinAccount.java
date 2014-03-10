@@ -122,5 +122,11 @@ public class AddFinAccount extends Activity {
 		intent.setClassName("com.example.banknote", nextActivity);
 		startActivity(intent);
 	}
+	
+	public void onBackPressed(){
+		Intent intent = new Intent();
+		intent.setClassName("com.example.banknote", "com.example.banknote.view.Dashboard");
+		startActivity(intent);
+	}
 
 }

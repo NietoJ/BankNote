@@ -45,7 +45,7 @@ public class AddTransactionHandler {
 		}
 		
 
-		if(!(transAmount.matches("[0-9]*\\.[0-9]{2}") )) //if transAmount is not in the correct format of a number
+		if(!(transAmount.matches("[0-9]*\\.[0-9]{2}") || transAmount.matches("[0-9]*"))) //if transAmount is not in the correct format of a number
 		{
 			return false; 
 		}

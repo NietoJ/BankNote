@@ -42,7 +42,7 @@ public class AddAccountHandler
 	
 	public static boolean isValidInterestRate(String ir)
 	{
-		if (!(ir == null || ir.equals("")))
+		if ((ir == null || ir.equals("")))
 		{
 			return true;
 		}
@@ -66,7 +66,7 @@ public class AddAccountHandler
 		}
 		
 		//if amount is not in the correct format of a number
-		if(!(amount.matches("[0-9]*\\.[0-9]{2}"))) 
+		if(!(amount.matches("[0-9]*\\.[0-9]{2}")|| amount.matches("[0-9]*"))) 
 		{
 			return false; 
 		}
@@ -77,7 +77,13 @@ public class AddAccountHandler
 	public static void addAccount(String fullName, String displayName, String balance, String interestRate)
 	{
 		double balanceDouble = Double.parseDouble(balance);
-		double irDouble = Double.parseDouble(interestRate);
+		
+		double irDouble;
+		if ( interestRate == null || interestRate.equals("") ){
+			irDouble = 0;
+		} else {
+			irDouble = Double.parseDouble(interestRate);
+		}
 		
 		if (displayName == null || displayName.equals("")) {
 			displayName = fullName;

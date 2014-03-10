@@ -1,5 +1,8 @@
 package com.example.banknote.view;
 
+import java.text.NumberFormat;
+import java.util.Formatter;
+
 import com.example.banknote.R;
 import com.example.banknote.model.AccountSingle;
 
@@ -30,7 +33,9 @@ public class FinancialAccountMain extends Activity {
 		setContentView(R.layout.activity_financial_account_main);
 		
 		displayName = AccountSingle.getCurrentAccount().getDisplayName();
-		balance =  "$ " + AccountSingle.getCurrentAccount().getBalance();
+		
+		NumberFormat baseFormat = NumberFormat.getCurrencyInstance();
+		balance = baseFormat.format(AccountSingle.getCurrentAccount().getBalance());
 		
 		displayNameTV = (TextView) findViewById(R.id.displayt_name_textView);
 		balanceTV = (TextView) findViewById(R.id.balance_textView);

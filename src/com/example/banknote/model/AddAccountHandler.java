@@ -21,12 +21,12 @@ public class AddAccountHandler
 	
 	public static boolean nameAlreadyExists(String fullName, String displayName)
 	{
-		if (accounts == null)
+		if (UserSingle.getCurrentUser().getAccounts() == null)
 		{
 			return false;
 		}
 		
-		for (Account a: accounts)
+		for (Account a: UserSingle.getCurrentUser().getAccounts())
 		{
 			if (a == null)
 			{		

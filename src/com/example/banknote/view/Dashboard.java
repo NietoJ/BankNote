@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.banknote.R;
 import com.example.banknote.model.Account;
 import com.example.banknote.model.AccountSingle;
+import com.example.banknote.model.DashboardHandler;
 import com.example.banknote.model.UserSingle;
 
 import android.app.Activity;
@@ -63,6 +64,9 @@ public class Dashboard extends Activity
 	private void spinnerUpdate() {
 		// TODO Auto-generated method stub
 		
+		DashboardHandler.initializeList(list);
+		
+		/*
 		// Initialize the list with all the accounts in user by DisplayName
 		if ( UserSingle.getCurrentUser().getAccounts() == null ) {
 			list.add("You have no account to view!");
@@ -71,6 +75,8 @@ public class Dashboard extends Activity
 				list.add(a.getDisplayName());
 			}
 		}
+		*/
+		
 		
 		
 		// Create an ArrayAdapter using the string array and a default spinner layout
@@ -136,6 +142,9 @@ public class Dashboard extends Activity
 		
 		// DashboardHandler.updateAccountIn();
 		selectedAccount = (String) spinner.getSelectedItem();
+		
+		/*
+		
 		if( !(UserSingle.getCurrentUser().getAccounts() == null)) {
 			selectedAccountIndex = list.indexOf(selectedAccount) ;
 			}
@@ -150,8 +159,9 @@ public class Dashboard extends Activity
 			toast.show();
 			return true;		
 		} 
+		*/
 	
-		return false;
+		return DashboardHandler.updateSelectedAccount(selectedAccount, selectedAccountIndex, list);
 		
 	}
 	

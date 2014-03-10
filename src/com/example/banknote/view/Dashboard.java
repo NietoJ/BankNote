@@ -5,9 +5,11 @@ import java.util.List;
 
 import com.example.banknote.R;
 import com.example.banknote.model.Account;
+import com.example.banknote.model.AccountSingle;
 import com.example.banknote.model.UserSingle;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +17,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Dashboard extends Activity 
 {
@@ -26,7 +29,7 @@ public class Dashboard extends Activity
 	
 	//Spinner helper to retrieve the selected Account as String
 	private String selectedAccount = "";
-	private int selectedAccountIndex = 0;
+	private int selectedAccountIndex = -1;
 	
 	
 	List<String> list = new ArrayList<String>();
@@ -61,9 +64,12 @@ public class Dashboard extends Activity
 		// TODO Auto-generated method stub
 		
 		// Initialize the list with all the accounts in user by DisplayName
-		
-		for ( Account a : UserSingle.getCurrentUser().getAccounts() ) {
-			list.add(a.getDisplayName());
+		if ( UserSingle.getCurrentUser().getAccounts() == null ) {
+			list.add("You have no account to view!");
+		} else {
+			for ( Account a : UserSingle.getCurrentUser().getAccounts() ) {
+				list.add(a.getDisplayName());
+			}
 		}
 		
 		
@@ -83,11 +89,6 @@ public class Dashboard extends Activity
 		CustomOnItemSelectedListener selectTypeListener = new CustomOnItemSelectedListener();
 		spinner.setOnItemSelectedListener(selectTypeListener);
 		
-		// Update the selectedAccount with the string of DisplayName
-		CustomOnItemSelectedListener.getSelected(selectedAccount);
-		
-		selectedAccountIndex =list.indexOf(selectedAccount) ;
-
 	}
 	
 
@@ -101,9 +102,19 @@ public class Dashboard extends Activity
 		findViewById(R.id.view_fin_account).setOnClickListener(
 				new View.OnClickListener() {
 					@Override
-					public void onClick(View view) { 
-						text = "com.example.banknote.view.FinancialAccountMain";
-						goNextActivity(view);
+					public void onClick(View view) {
+						
+						if (attemptToView()) {
+							text = "com.example.banknote.view.FinancialAccountMain";
+							goNextActivity(view);
+						} else {
+							Context context = getApplicationContext();
+							CharSequence text = "You have no account, please create one?";
+							int duration = Toast.LENGTH_SHORT;
+							Toast toast = Toast.makeText(context, text, duration);
+							toast.show();
+						}
+					
 					}
 				});
 		
@@ -115,10 +126,33 @@ public class Dashboard extends Activity
 						goNextActivity(view);
 					}
 				});
-		
-		
-		
+	
 		return true;
+	}
+	
+	public boolean attemptToView(){
+		
+		// Update the selectedAccount with the string of DisplayName
+		
+		// DashboardHandler.updateAccountIn();
+		selectedAccount = (String) spinner.getSelectedItem();
+		if( !(UserSingle.getCurrentUser().getAccounts() == null)) {
+			selectedAccountIndex = list.indexOf(selectedAccount) ;
+			}
+				
+		if ( selectedAccountIndex != -1){
+			AccountSingle.getInstance();
+			AccountSingle.setCurrentAccount(UserSingle.getCurrentUser().getAccounts().get(selectedAccountIndex));
+			Context context = getApplicationContext();
+			CharSequence text = " " + selectedAccountIndex;
+			int duration = Toast.LENGTH_SHORT;
+			Toast toast = Toast.makeText(context, selectedAccount, duration);
+			toast.show();
+			return true;		
+		} 
+	
+		return false;
+		
 	}
 	
 	public void goNextActivity(View view){

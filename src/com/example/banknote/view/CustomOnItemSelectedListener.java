@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class CustomOnItemSelectedListener implements OnItemSelectedListener {
 
-	private static String selectedItem;
+	private String selectedItem;
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int pos,
 			long id) {
@@ -32,10 +32,6 @@ public class CustomOnItemSelectedListener implements OnItemSelectedListener {
 	public void onNothingSelected(AdapterView<?> parent) {
 		// TODO Auto-generated method stub
 
-	}
-	
-	public static void getSelected(String returnString){
-		returnString = selectedItem;
 	}
 
 }

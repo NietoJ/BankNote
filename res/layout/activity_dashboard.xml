@@ -17,15 +17,13 @@
         android:gravity="center"
         android:orientation="vertical" >
         
-        <Button
-                android:id="@+id/finacc_add_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:paddingLeft="32dp"
-                android:paddingRight="32dp"
-                android:text="@string/add_account"
-                android:onClick="goToFinAcc"/>
+        <Spinner
+            android:id="@+id/account_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:prompt="@string/trans_type" />
+        
         <Button
                 android:id="@+id/view_fin_account"
                 android:layout_width="wrap_content"
@@ -36,13 +34,16 @@
                 android:text="@string/view_acc"
                 android:onClick="goToFinAcc"/>
         
-        <Spinner
-            android:id="@+id/account_spinner"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:prompt="@string/trans_type" />
-        
+        <Button
+                android:id="@+id/finacc_add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:text="@string/add_account"
+                android:onClick="goToFinAcc"/>
+       
         <TextView
             android:id="@+id/dashboardtext"
             android:layout_width="match_parent"

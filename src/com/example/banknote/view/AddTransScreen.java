@@ -2,9 +2,11 @@ package com.example.banknote.view;
 
 import com.example.banknote.R;
 import com.example.banknote.model.Account;
+import com.example.banknote.model.AccountSingle;
 import com.example.banknote.model.Transaction;
 import com.example.banknote.model.User;
 import com.example.banknote.model.AddTransactionHandler;
+import com.example.banknote.model.UserSingle;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -36,6 +38,7 @@ public class AddTransScreen extends Activity {
 	private Spinner spinner;
 	private Button btnAddTrans;
 	
+	// this variable to check either income or outcome radio buttons is checked
 	private boolean isRadioChecked = false; 
 	
 	ArrayAdapter<CharSequence> adapter;
@@ -66,6 +69,7 @@ public class AddTransScreen extends Activity {
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) { 
+						addListenerOnSpinnerItemSelection();
 						attemptAddTrans(view);
 						
 					}
@@ -99,7 +103,6 @@ public class AddTransScreen extends Activity {
 		// TODO Auto-generated method stub
 		CustomOnItemSelectedListener selectTypeListener = new CustomOnItemSelectedListener();
 		spinner.setOnItemSelectedListener(selectTypeListener);
-		selectedType = selectTypeListener.getSelectedItem();
 
 	}
 	
@@ -132,8 +135,8 @@ public class AddTransScreen extends Activity {
 	            }
 	            break;
 	    }
-	    Toast toast = Toast.makeText(context, text, duration);
-	    toast.show();
+	    //Toast toast = Toast.makeText(context, text, duration);
+	    //toast.show();
 	}
 	
 	public void attemptAddTrans(View view) {
@@ -142,12 +145,8 @@ public class AddTransScreen extends Activity {
         amount = amountET.getText().toString();
         description = descriptionET.getText().toString(); 
         
-        description = descriptionET.getText().toString(); 
-        
-        //NOTICE
-        //Account and User from Singleton (Now, they are null initialized objects)
-        Account targetAccount = null;
-        User targetUser = null;
+        // Save the string of selected type to the variable
+        selectedType = (String) spinner.getSelectedItem();
         
         //Toast constructor
         Context context = getApplicationContext();
@@ -155,7 +154,8 @@ public class AddTransScreen extends Activity {
         
         // checking if radio buttons is checked
         if ( isRadioChecked ) {
-        	// create new transaction
+        	
+        	// create new transaction with AddTransactionHandler object
             AddTransactionHandler handler = new AddTransactionHandler();
           
             // Checking if the amount has the valid input type
@@ -163,20 +163,20 @@ public class AddTransScreen extends Activity {
             {
             	if (handler.isValidAmount(amount)){
             		
-            		handler.addNewTrans(selectedType, description, isIncome, amount, targetAccount, targetUser);
+            		handler.addNewTrans(selectedType, description, isIncome, amount);
             		
-             		text = "Transaction" + selectedType + " " + isIncome + " " + amount;
+             		text = "Transaction " + selectedType + " " + isIncome + " " + amount;
              		
             	} else {
-            		text = "Please check the input amount!";
+            		text = "Please type the valid amount of transaction.";
             	}
                 
             } else{
-            	text = "A description is needed!";
+            	text = "A transaction's description is needed. ";
             }
            
         } else {
-        	text = "Please check Income or Outcome!";
+        	text = "Please check either Income or Outcome!";
         }
 		
         int duration = Toast.LENGTH_SHORT;

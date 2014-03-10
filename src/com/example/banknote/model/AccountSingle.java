@@ -1,10 +1,14 @@
+
+
+
+
 package com.example.banknote.model;
 
 public class AccountSingle {
 	
 	private static AccountSingle instance;
 	
-	private Account currentAccount;
+	private static Account currentAccount;
 	
 	 public AccountSingle(){
 		 
@@ -21,11 +25,11 @@ public class AccountSingle {
 		 return instance;
 	 }
 	 
-	 public Account getCurrentAccount(){
+	 public static Account getCurrentAccount(){
 		 return currentAccount;
 	 }
 	 
-	 public void setCurrentAccount(Account account){
+	 public static void setCurrentAccount(Account account){
 		 currentAccount = account;
 	 }
 

@@ -64,6 +64,7 @@
             android:id="@+id/types_spinner"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:prompt="@string/trans_type" />
         
         <EditText
@@ -73,6 +74,7 @@
             android:hint="@string/trans_description"
             android:maxLines="1"
             android:singleLine="true"
+            android:gravity="right"
             android:inputType="text" />
 
         <EditText
@@ -82,7 +84,10 @@
             android:hint="@string/trans_amount_eg"
             android:maxLines="1"
             android:singleLine="true"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:textSize="30sp"
+            android:textColor="@color/dark_purple"
+            android:gravity="right" />
 
         <Button
             android:id="@+id/add_transaction_button"
@@ -93,7 +98,7 @@
             android:onClick="makeNewTransaction"
             android:paddingLeft="32dp"
             android:paddingRight="32dp"
-            android:text="@string/done" />
+            android:text="@string/add" />
 
     </LinearLayout>
 

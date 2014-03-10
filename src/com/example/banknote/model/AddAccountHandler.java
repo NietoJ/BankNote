@@ -1,15 +1,11 @@
 package com.example.banknote.model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class AddAccountHandler 
 {
-	private static LinkedList<Account> accounts;
-	
-	public static void setup()
-	{
-		accounts = new LinkedList<Account>();
-	}
+	private static ArrayList<Account> accounts = UserSingle.getCurrentUser().getAccounts();
 	
 	public static boolean isValidName(String name)
 	{
@@ -62,11 +58,12 @@ public class AddAccountHandler
 	public static Account addAccount(String fullName, String displayName, String balance, String interestRate)
 	{
 		Account a = new Account();
+		
+		double balanceDouble = Double.parseDouble(balance);
 		a.setFullName(fullName);
 		a.setDisplayName(displayName);
 		if (balance != null && !balance.equals(""))
 		{
-			double balanceDouble = Double.parseDouble(balance);
 			a.setBalance(balanceDouble);
 		}
 		if (interestRate != null && !interestRate.equals(""))
@@ -74,7 +71,13 @@ public class AddAccountHandler
 			double irDouble = Double.parseDouble(interestRate);
 			a.setBalance(irDouble);
 		}
-		accounts.add(a);
+		
+		// Set initial balance for the new account (Transaction)
+		a.getHistory().setIntBalacce(balanceDouble);
+		
+		// Add the new account into Accounts List of current user.
+		UserSingle.getCurrentUser().getAccounts().add(a);
+		
 		return a;
 	}
 	

@@ -42,4 +42,5 @@
     <string name="view_acc">View Account</string>
     <string name="add_trans">Add Transaction</string>
     <string name="trans_description">Description</string>
+    <string name="add">Add</string>
 </resources>

@@ -5,11 +5,13 @@ import com.example.banknote.model.AccountSingle;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FinancialAccountMain extends Activity {
 	
@@ -27,11 +29,8 @@ public class FinancialAccountMain extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_financial_account_main);
 		
-		//displayName = AccountSingle.getCurrentAccount().getDisplayName();
-		//balance =  "$ " + AccountSingle.getCurrentAccount().getBalance();
-		
-		displayName = "College Account";
-		balance = " $ 109.00";
+		displayName = AccountSingle.getCurrentAccount().getDisplayName();
+		balance =  "$ " + AccountSingle.getCurrentAccount().getBalance();
 		
 		displayNameTV = (TextView) findViewById(R.id.displayt_name_textView);
 		balanceTV = (TextView) findViewById(R.id.balance_textView);

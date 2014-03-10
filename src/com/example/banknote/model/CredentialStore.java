@@ -16,6 +16,9 @@ public class CredentialStore
 	{
 		User u = new User(name,password);
 		users.add(u);
+		
+		UserSingle.getInstance();
+		UserSingle.setCurrentUser(u);
 	}
 	
 	/**

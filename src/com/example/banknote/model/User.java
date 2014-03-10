@@ -29,6 +29,7 @@ public class User
 	{
 		this.name = name;
 		this.password = password;
+		this.accounts = new ArrayList<Account>();
 	}
 
 	/**
@@ -82,7 +83,7 @@ public class User
 	 */
 	public void addAccount(Account account)
 	{
-		accounts.add(account);
+		this.accounts.add(account);
 	}
 	
 	/**

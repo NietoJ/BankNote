@@ -14,8 +14,9 @@ public class LoginHandler
 		setUpDefaultCredentials();
 		if (CredentialStore.containsNameAndPassword(name, password))
 		{
-			UserSingle.getInstance();
+
 			User u = CredentialStore.getUser(name);
+			UserSingle.getInstance();
 			UserSingle.setCurrentUser(u);
 			return true;
 		}

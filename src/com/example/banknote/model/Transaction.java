@@ -63,15 +63,15 @@ public class Transaction {
 	 * @param targetAccount: the financial account that the transaction belongs to.
 	 * @param targetUser: the user account that the transaction belongs to.
 	 */
-	public Transaction (String type, String description, boolean isIncome, double amount, Account targetAccount, User targetUser ) {
-		
+	public Transaction (String type, String description, boolean isIncome, double amount)
+	{
 		this.setType(type);
 		this.setDescription(description); 
 		this.setIsIncome(isIncome);
 		this.setAmount(amount);	
 		this.setRecordedTime();
-		this.setTargetAccount(targetAccount);
-		this.setTargetUser(targetUser);
+		this.setTargetAccount();
+		this.setTargetUser();
 	}
 	
 	private void setDescription(String description) {
@@ -118,18 +118,18 @@ public class Transaction {
 	 * 
 	 * @param targetAccount The target financial account of the transaction
 	 */
-	public void setTargetAccount(Account targetAccount)
+	public void setTargetAccount()
 	{
-		this.targetAccount = targetAccount;
+		this.targetAccount = AccountSingle.getCurrentAccount();
 	}
 	
 	/**
 	 * 
 	 * @param targetUser The target user account of the transaction
 	 */
-	public void setTargetUser(User targetUser)
+	public void setTargetUser()
 	{
-		this.targetUser = targetUser;
+		this.targetUser = UserSingle.getCurrentUser();
 	}
 	
 	/**

@@ -31,16 +31,13 @@ public class History {
 	public void addNewTrans (Transaction newTrans) {
 		// add newTrans to the Transaction List
 		transList.add(newTrans);
-		
-		//Update the Balance in current account
-		AccountSingle.getCurrentAccount().updateBalance();
 	}
 	
 	/**
-	 * when account created, adds first transaction in the List as Initial Balance.
+	 * when account created, adds first transaction in the List as Initial Balance
 	 */
 	public void setIntBalacce (double amount) {
-		Transaction initialTransaction = new Transaction ("Initial Balance", "Initial Balance", true, amount, AccountSingle.getCurrentAccount(), UserSingle.getCurrentUser());
+		Transaction initialTransaction = new Transaction ("Initial Balance", "Initial Balance", true, amount);
 		transList.add(initialTransaction);
 	}
 	

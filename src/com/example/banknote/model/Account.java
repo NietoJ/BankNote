@@ -34,7 +34,7 @@ public class Account implements Comparable<Account>
 	 * A History object that store transaction information. 
 	 * @Editted by Nghia Huynh
 	 */
-	private History transHistory;
+	private History transHistory = new History();
 	
 	/**
 	 * 
@@ -48,7 +48,7 @@ public class Account implements Comparable<Account>
 		setFullName(fullName);
 		setDisplayName(displayName);
 		setBalance(balance);
-		setInterestRate(interestRate);	
+		setInterestRate(interestRate);
 	}
 	
 	/**
@@ -145,8 +145,11 @@ public class Account implements Comparable<Account>
 		return transHistory;
 	}
 	
-	public void updateBalance(){
-		balance += transHistory.getLastTransaction().getAmount();
+	/**
+	 * Update account's balance with the last recent transaction added
+	 */
+	public void updateBalance(double amount){
+		balance += amount;
 	}
 	
 	

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -70,7 +71,9 @@ public class AddTransScreen extends Activity {
 					@Override
 					public void onClick(View view) { 
 						addListenerOnSpinnerItemSelection();
-						attemptAddTrans(view);
+						if (attemptAddTrans(view)) {
+							goNextActivity(view);
+						}
 						
 					}
 				});
@@ -135,11 +138,9 @@ public class AddTransScreen extends Activity {
 	            }
 	            break;
 	    }
-	    //Toast toast = Toast.makeText(context, text, duration);
-	    //toast.show();
 	}
 	
-	public void attemptAddTrans(View view) {
+	public boolean attemptAddTrans(View view) {
 		// TODO Auto-generated method stub
  
         amount = amountET.getText().toString();
@@ -154,18 +155,16 @@ public class AddTransScreen extends Activity {
         
         // checking if radio buttons is checked
         if ( isRadioChecked ) {
-        	
-        	// create new transaction with AddTransactionHandler object
-            AddTransactionHandler handler = new AddTransactionHandler();
           
             // Checking if the amount has the valid input type
-            if ( handler.isValidDescription(description))
+            if ( AddTransactionHandler.isValidDescription(description))
             {
-            	if (handler.isValidAmount(amount)){
+            	if (AddTransactionHandler.isValidAmount(amount)){
             		
-            		handler.addNewTrans(selectedType, description, isIncome, amount);
+            		AddTransactionHandler.addNewTrans(selectedType, description, isIncome, amount);
             		
-             		text = "Transaction " + selectedType + " " + isIncome + " " + amount;
+            		//Transaction is added successfully
+            		return true;
              		
             	} else {
             		text = "Please type the valid amount of transaction.";
@@ -180,11 +179,21 @@ public class AddTransScreen extends Activity {
         }
 		
         int duration = Toast.LENGTH_SHORT;
-
  		Toast toast = Toast.makeText(context, text, duration);
  		toast.show();
-		
+ 		
+ 		return false;
 	}
+	
+	
+	public void goNextActivity(View view){
+		Intent intent = new Intent();
+		intent.setClassName("com.example.banknote", "com.example.banknote.view.FinancialAccountMain");
+		startActivity(intent);
+	}
+	
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -192,7 +201,7 @@ public class AddTransScreen extends Activity {
 		getMenuInflater().inflate(R.menu.add_trans_screen, menu);
 		return true;
 	}
-	
+
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
 	 */

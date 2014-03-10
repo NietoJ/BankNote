@@ -3,10 +3,13 @@ package com.example.banknote.model;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import android.content.Context;
+import android.widget.Toast;
+
 public class AddAccountHandler 
 {
-	private static ArrayList<Account> accounts = UserSingle.getCurrentUser().getAccounts();
-	
+	//private static ArrayList<Account> accounts = UserSingle.getCurrentUser().getAccounts();
+	private static ArrayList<Account> accounts ;
 	public static boolean isValidName(String name)
 	{
 		if (name == null || name.equals(""))
@@ -39,7 +42,7 @@ public class AddAccountHandler
 	
 	public static boolean isValidInterestRate(String ir)
 	{
-		if (ir == null || ir.equals(""))
+		if (!(ir == null || ir.equals("")))
 		{
 			return true;
 		}
@@ -54,31 +57,44 @@ public class AddAccountHandler
 		else return true;
 	}
 	
-
-	public static Account addAccount(String fullName, String displayName, String balance, String interestRate)
+	
+	public static boolean isValidAmount(String amount)
 	{
-		Account a = new Account();
+		if (amount == null || amount.equals(""))
+		{
+			return false;
+		}
 		
+		//if amount is not in the correct format of a number
+		if(!(amount.matches("[0-9]*\\.[0-9]{2}"))) 
+		{
+			return false; 
+		}
+		else return true;
+	}
+	
+
+	public static void addAccount(String fullName, String displayName, String balance, String interestRate)
+	{
 		double balanceDouble = Double.parseDouble(balance);
-		a.setFullName(fullName);
-		a.setDisplayName(displayName);
-		if (balance != null && !balance.equals(""))
-		{
-			a.setBalance(balanceDouble);
-		}
-		if (interestRate != null && !interestRate.equals(""))
-		{
-			double irDouble = Double.parseDouble(interestRate);
-			a.setBalance(irDouble);
+		double irDouble = Double.parseDouble(interestRate);
+		
+		if (displayName == null || displayName.equals("")) {
+			displayName = fullName;
 		}
 		
-		// Set initial balance for the new account (Transaction)
-		a.getHistory().setIntBalacce(balanceDouble);
+		Account account = new Account(fullName, displayName, balanceDouble, irDouble);	
 		
 		// Add the new account into Accounts List of current user.
-		UserSingle.getCurrentUser().getAccounts().add(a);
+		User currentUser = UserSingle.getCurrentUser();
+		currentUser.addAccount(account);
 		
-		return a;
+		
+		AccountSingle.getInstance();
+		AccountSingle.setCurrentAccount(account);
+		
+		// Set initial balance for the new account (Transaction)
+		account.getHistory().setIntBalacce(balanceDouble);
 	}
 	
 }

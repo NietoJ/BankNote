@@ -21,10 +21,7 @@ public class Dashboard extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dashboard);
 		
-		//Allows you to get the user's name passed from login screen
-//		Intent intent = getIntent();
-//		String name = intent.getStringExtra(Login_screen.USER);
-//		presenter = new DashboardPresenter(this, name);
+
 		btnViewAcc = (Button) findViewById(R.id.view_fin_account);
 		btnAddFinAcc = (Button) findViewById(R.id.finacc_add_button);
 	

@@ -7,9 +7,9 @@ import java.util.regex.*;
 
 public class AddTransactionHandler {
 	
-	private Transaction newTrans;
 	
-	public void addNewTrans (String type, String description, boolean isIncome, String amount) {
+	
+	public static void addNewTrans (String type, String description, boolean isIncome, String amount) {
 		
 		double transAmount = Double.parseDouble(amount);
 		
@@ -19,10 +19,16 @@ public class AddTransactionHandler {
 		}
 	
 		// create new transaction by defined instructors
-	 newTrans = new Transaction (type, description, isIncome, transAmount, AccountSingle.getCurrentAccount(), UserSingle.getCurrentUser());
+	 
+		Transaction newTrans = new Transaction (type, description, isIncome, transAmount);
+		AccountSingle.getCurrentAccount().getHistory().addNewTrans(newTrans);
+		
+		
+		//Update the Balance in current account
+		AccountSingle.getCurrentAccount().updateBalance(transAmount);
 	}
 	
-	public boolean isValidDescription(String name)
+	public static boolean isValidDescription(String name)
 	{
 		if (name == null || name.equals(""))
 		{
@@ -31,7 +37,7 @@ public class AddTransactionHandler {
 		else return true;
 	}
 	
-	public boolean isValidAmount(String transAmount)
+	public static boolean isValidAmount(String transAmount)
 	{
 		if (transAmount == null || transAmount.equals(""))
 		{
@@ -39,7 +45,7 @@ public class AddTransactionHandler {
 		}
 		
 
-		if(!(transAmount.matches("[0-9]*\\.[0-9]{2}") || transAmount.matches("[0-9]*"))) //if transAmount is not in the correct format of a number
+		if(!(transAmount.matches("[0-9]*\\.[0-9]{2}") )) //if transAmount is not in the correct format of a number
 		{
 			return false; 
 		}

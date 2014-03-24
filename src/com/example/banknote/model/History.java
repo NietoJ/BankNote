@@ -47,5 +47,9 @@ public class History {
 		return transList.get(numOfTrans - 1);
 	}
 	
+	public List<Transaction> getArrayList() {
+		return transList; 
+	}
+	
 	
 }

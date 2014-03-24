@@ -3,23 +3,25 @@ package com.example.banknote.view;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.banknote.R;
-import com.example.banknote.model.Account;
-import com.example.banknote.model.UserSingle;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.example.banknote.R;
+import com.example.banknote.model.Account;
+import com.example.banknote.model.UserSingle;
 
 public class Dashboard extends Activity 
 {
 	private Button btnViewAcc;
 	private Button btnAddFinAcc;
+	private Button btnReports;
 	private Spinner spinner;
 	private String text = "";
 	
@@ -31,7 +33,7 @@ public class Dashboard extends Activity
 	
 	List<String> list = new ArrayList<String>();
 	ArrayAdapter<String> adapter;
-	
+		
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -42,6 +44,14 @@ public class Dashboard extends Activity
 
 		btnViewAcc = (Button) findViewById(R.id.view_fin_account);
 		btnAddFinAcc = (Button) findViewById(R.id.finacc_add_button);
+		btnReports = (Button) findViewById(R.id.goto_reports_button);
+		btnReports.setOnClickListener(new OnClickListener()
+		{
+			public void onClick(View v)
+			{
+				startActivity(new Intent(getApplicationContext(), SelectDateActivity.class));
+			}
+		});
 		
 		//Spinnner
 		spinner = (Spinner) findViewById(R.id.account_spinner);

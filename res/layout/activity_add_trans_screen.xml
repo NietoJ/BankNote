@@ -27,7 +27,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/startTextView"
             android:layout_width="match_parent"
             android:layout_height="51dp"
             android:text="@string/trans_add_instruction"

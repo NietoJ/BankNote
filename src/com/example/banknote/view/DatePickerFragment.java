@@ -33,11 +33,11 @@ implements DatePickerDialog.OnDateSetListener
 	public void onDateSet(DatePicker view, int year, int month, int day) 
 	{
 		this.year = year - 1900;
-		this.month = month - 1;
+		this.month = month;
 		this.day = day;
 		
 		@SuppressWarnings("deprecation")
-		Date d = new Date(year, month, day);
+		Date d = new Date(this.year,this.month, this.day);
 		DateSingle.getInstance().setSelectedtDate(d);
 		
 	}

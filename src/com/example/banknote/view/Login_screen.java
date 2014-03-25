@@ -73,6 +73,7 @@ public class Login_screen extends Activity
 			//attach the name of the user who has successfully logged in
 			successIntent.putExtra(USER, mEmail);
 			startActivity(successIntent); 
+			finish();
 		} 
 		else// stay on login screen and notify user with toast
 		{
@@ -83,4 +84,12 @@ public class Login_screen extends Activity
 			toast.show();
 		} 
 	}
+	
+	@Override
+	public void onBackPressed() 
+	{
+		startActivity(new Intent(getApplicationContext(), Welcome_screen.class));
+	}
+	
+
 }

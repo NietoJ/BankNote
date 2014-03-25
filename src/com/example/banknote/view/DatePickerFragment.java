@@ -5,6 +5,7 @@ import java.util.Date;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
@@ -40,5 +41,11 @@ implements DatePickerDialog.OnDateSetListener
 		Date d = new Date(this.year,this.month, this.day);
 		DateSingle.getInstance().setSelectedtDate(d);
 		
+	}
+	
+	@Override
+	public void onBackPressed() 
+	{
+		startActivity(new Intent(getApplicationContext(), Welcome_screen.class));
 	}
 }

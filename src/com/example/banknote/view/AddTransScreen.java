@@ -194,6 +194,7 @@ public class AddTransScreen extends Activity {
 		Intent intent = new Intent();
 		intent.setClassName("com.example.banknote", "com.example.banknote.view.FinancialAccountMain");
 		startActivity(intent);
+		finish();
 	}
 	
 	
@@ -217,4 +218,10 @@ public class AddTransScreen extends Activity {
 		}
 	}
 
+	
+	@Override
+	public void onBackPressed() 
+	{
+		startActivity(new Intent(getApplicationContext(), FinancialAccountMain.class));
+	}
 }

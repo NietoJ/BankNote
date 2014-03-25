@@ -3,6 +3,7 @@ package com.example.banknote.view;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
@@ -118,5 +119,11 @@ public class SelectDateActivity extends FragmentActivity
 		    DialogFragment newFragment = new DatePickerFragment();
 		    newFragment.show(getSupportFragmentManager(), "datePicker");
 	 }
+     
+ 	@Override
+ 	public void onBackPressed() 
+ 	{
+ 		startActivity(new Intent(getApplicationContext(), Dashboard.class));
+ 	}
 }
 

@@ -31,6 +31,7 @@ public class Welcome_screen extends Activity
 	{
 		Intent intent = new Intent(this, Login_screen.class);
 		startActivity(intent);
+		finish();
 	}
 	
 	/** Called when the user clicks the Register button */
@@ -38,6 +39,7 @@ public class Welcome_screen extends Activity
 	{
 		Intent intent = new Intent(this, Register_screen.class);
 		startActivity(intent);
+		finish();
 	}
 
 }

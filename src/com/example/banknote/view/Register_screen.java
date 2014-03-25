@@ -92,6 +92,7 @@ public class Register_screen extends Activity {
 			Intent successIntent = new Intent();
 			successIntent.setClassName("com.example.banknote", "com.example.banknote.view.Login_screen");
 			startActivity(successIntent); 
+			finish();
 		} else {
 			Context context = getApplicationContext();
 			CharSequence text = "Try Again!";
@@ -101,4 +102,14 @@ public class Register_screen extends Activity {
 			toast.show();
 		}
 	}
+	
+
+
+	@Override
+	public void onBackPressed() 
+	{
+		startActivity(new Intent(getApplicationContext(), Welcome_screen.class));
+	}
+
+
 }

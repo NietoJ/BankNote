@@ -112,8 +112,15 @@ public class Dashboard extends Activity
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) { 
-						text = "com.example.banknote.view.FinancialAccountMain";
-						goNextActivity(view);
+						if (UserSingle.getCurrentUser().getAccounts() == null)
+						{
+							popToast("No Accounts to view");
+						}
+						else
+						{
+							text = "com.example.banknote.view.FinancialAccountMain";
+							goNextActivity(view);
+						}
 					}
 				});
 		
@@ -125,15 +132,24 @@ public class Dashboard extends Activity
 						goNextActivity(view);
 					}
 				});
-		
-		
-		
-		return true;
+				return true;
 	}
 	
+	protected void popToast(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void goNextActivity(View view){
 		Intent intent = new Intent();
 		intent.setClassName("com.example.banknote", text);
 		startActivity(intent);
+		finish();
+	}
+	
+	@Override
+	public void onBackPressed() 
+	{
+		startActivity(new Intent(getApplicationContext(), Login_screen.class));
 	}
 }

@@ -9,13 +9,17 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.banknote.R;
 import com.example.banknote.model.DateSingle;
-import com.example.banknote.model.Reports;
+import com.example.banknote.model.ReportEntry;
+import com.example.banknote.model.SpendingCategoryReport;
 
 public class SelectDateActivity extends FragmentActivity
 {
@@ -30,8 +34,9 @@ public class SelectDateActivity extends FragmentActivity
 	boolean startSet = false;
 	boolean endSet = false;
 //For next step
-//	ListView listView;
-//	ListAdapter listAdapter;
+	ListView listView;
+	ListAdapter listAdapter;
+	ArrayList<ReportEntry> list;
 	
 	 public void onCreate(Bundle savedInstanceState) 
 	 {
@@ -60,7 +65,12 @@ public class SelectDateActivity extends FragmentActivity
 						Date start = DateSingle.getInstance().getStartDate();
 						Date end = DateSingle.getInstance().getEndDate();
 
-						ArrayList<String> reports =Reports.getReports(start, end);
+						SpendingCategoryReport sCReport = new SpendingCategoryReport(start,end);
+						list = sCReport.getCatArray();
+						displayListVeiw();
+						
+						displayStart.setText(DateSingle.getInstance().getStartDate().toString());
+						displayEnd.setText(DateSingle.getInstance().getEndDate().toString());
 					
 					
 					}	
@@ -88,38 +98,25 @@ public class SelectDateActivity extends FragmentActivity
 			});
 	        
 	 }
-//	 protected void displayListVeiw() 
-//	 {
-//		 listView = (ListView) findViewById(R.id.listView1);
-//
-//			
-//		listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
-//		listView.setAdapter(listAdapter);
-//		
-//        listView.setOnItemClickListener(new OnItemClickListener() 
-//        {
-//        	@Override
-//            public void onItemClick(AdapterView<?> parent, View view,
-//              int position, long id) 
-//        	
-//              
-//             // ListView Clicked item index
-//             int itemPosition     = position;
-//             
-//             // ListView Clicked item value
-//             String  itemValue    = (String) listView.getItemAtPosition(position);
-//                
-//              // Show Alert 
-//              Toast.makeText(getApplicationContext(),
-//                "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-//                .show();
-	           
+	 
+	 
+	 protected void displayListVeiw() 
+	 {
+		listView = (ListView) findViewById(R.id.listView1);
+
+			
+		listAdapter = new ArrayAdapter<ReportEntry>(this, android.R.layout.simple_list_item_1, list);
+		listView.setAdapter(listAdapter);
+	
+	
+	 }
 	       
 		
 	
-	public void showDatePickerDialog(View v) 
+     public void showDatePickerDialog(View v) 
 	 {
 		    DialogFragment newFragment = new DatePickerFragment();
 		    newFragment.show(getSupportFragmentManager(), "datePicker");
 	 }
 }
+

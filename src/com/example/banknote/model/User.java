@@ -39,6 +39,7 @@ public class User
 	{
 		name = "";
 		password = "";
+		this.accounts = new ArrayList<Account>();
 	}
 
 	/**

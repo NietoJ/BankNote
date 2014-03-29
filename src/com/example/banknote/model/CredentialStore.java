@@ -65,9 +65,6 @@ public class CredentialStore {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		for(User fin: userList){
-			System.out.println(fin);
-		}
 	}
 	
 	public static boolean containsName(String name){

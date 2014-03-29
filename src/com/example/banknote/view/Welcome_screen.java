@@ -1,6 +1,7 @@
 package com.example.banknote.view;
 
 import com.example.banknote.R;
+import com.example.banknote.model.DBSingle;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +17,7 @@ public class Welcome_screen extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_welcome_screen);
+		
 	}
 
 	@Override
@@ -23,6 +25,7 @@ public class Welcome_screen extends Activity
 	{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.welcome_screen, menu);
+		
 		return true;
 	}
 	
@@ -31,6 +34,8 @@ public class Welcome_screen extends Activity
 	{
 		Intent intent = new Intent(this, Login_screen.class);
 		startActivity(intent);
+		
+		finish();
 	}
 	
 	/** Called when the user clicks the Register button */
@@ -38,6 +43,7 @@ public class Welcome_screen extends Activity
 	{
 		Intent intent = new Intent(this, Register_screen.class);
 		startActivity(intent);
+		finish();
 	}
 
 }

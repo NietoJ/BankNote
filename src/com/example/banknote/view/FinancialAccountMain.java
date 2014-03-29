@@ -65,6 +65,13 @@ public class FinancialAccountMain extends Activity {
 		Intent intent = new Intent();
 		intent.setClassName("com.example.banknote", text);
 		startActivity(intent);
+		finish();
+	}
+	
+	@Override
+	public void onBackPressed() 
+	{
+		startActivity(new Intent(getApplicationContext(), Dashboard.class));
 	}
 
 }

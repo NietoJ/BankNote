@@ -46,6 +46,10 @@ public class DateSingle
 		return endDate;
 	}
 	
+	public boolean isEndDate()
+	{
+		return (selectedDate == endDate);
+	}
 
 	
 	public void selectStartDate()

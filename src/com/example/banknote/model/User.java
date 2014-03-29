@@ -39,6 +39,7 @@ public class User
 	{
 		name = "";
 		password = "";
+		this.accounts = new ArrayList<Account>();
 	}
 
 	/**
@@ -100,5 +101,15 @@ public class User
 			return true;
 		}
 		return false;
+	}
+	
+	public Account getAccountByDisplay(String name){
+		for(Account a: accounts){
+			if(a.getDisplayName().equals(name)){
+				return a;
+			}
+		}
+		return null;
+		
 	}
 }

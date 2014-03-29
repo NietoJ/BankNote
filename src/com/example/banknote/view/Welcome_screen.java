@@ -17,7 +17,7 @@ public class Welcome_screen extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_welcome_screen);
-		
+		DBSingle.getInstance().setDB(this); //this here is the context
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class Welcome_screen extends Activity
 	{
 		Intent intent = new Intent(this, Register_screen.class);
 		startActivity(intent);
-		finish();
+		//finish();
 	}
 
 }

@@ -10,11 +10,11 @@ public class AccountSingle {
 	
 	private static Account currentAccount;
 	
-	 public AccountSingle(){
+	 private AccountSingle(){
 		 
 	 }
 	 
-	 public AccountSingle(Account account){
+	 private AccountSingle(Account account){
 		 currentAccount = account;
 	 }
 	 

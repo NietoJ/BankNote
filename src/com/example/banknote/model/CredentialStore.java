@@ -1,105 +1,90 @@
 package com.example.banknote.model;
 
-import java.util.ArrayList;
 
-public class CredentialStore 
-{
-	//Holds users, each with a name and password
-	private static ArrayList<User> users = new ArrayList<User>();
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Collection;
+
+public class CredentialStore {
+	private static String filename = "users.dat";
+	private static Collection<User> userList;
+	private static boolean isSetUp = false;
 	
-	/**
-	 * Creates a new user and adds it to the collection of users
-	 * @param name
-	 * @param password
-	 */
-	public static void add(String name, String password)
-	{
-		User u = new User(name,password);
-		users.add(u);
-		
-		UserSingle.getInstance();
-		UserSingle.setCurrentUser(u);
-	}
-	
-	/**
-	 * Returns a lists of the user names
-	 * @return
-	 */
-	public static ArrayList<String> getNames()
-	{
-		ArrayList<String>names = new ArrayList<String>();
-		for (User u : users)
-		{
-			names.add(u.getName());
+	public static void add(String name, String password){
+		User u = new User(name, password);
+		FileOutputStream fos = null;
+		ObjectOutputStream out = null;
+		try {
+			fos = new FileOutputStream(filename, true);
+			out = new ObjectOutputStream(fos);
+			out.writeObject(u);
+			out.close();
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-		return names;
 	}
 	
-	
-	/**
-	 * Determines if a username already exists
-	 * @param name
-	 * @return true if the name already exists
-	 */
-	public static boolean containsName(String name)
-	{
-		for (User u: users)
-		{
-			if (u.getName().equals(name))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	
-	/**
-	 * Returns a list of the user passwords
-	 * @return
-	 */
-	public static ArrayList<String> getPassWords()
-	{
-		ArrayList<String>passwords = new ArrayList<String>();
-		for (User u : users)
-		{
-			passwords.add(u.getPassword());
-		}
-		return passwords;
-	}
-	
-	/**
-	 * Determines if a user with a given name and password exists
-	 * @param name
-	 * @param password
-	 * @return true if the user exists
-	 */
-	public static boolean containsNameAndPassword(String name, String password)
-	{
-		for (User u : users)
-		{
-			if (u.getName().equals(name) && u.getPassword().equals(password)) //do both name and pass match that of a user?
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * Returns the user with the same name
-	 * @param name
-	 * @return the user, NULL IF NOT FOUND
-	 */
-	public static User getUser(String name)
-	{
-		for (User u : users)
-		{
-			if (u.getName().equals(name))
-			{
+	public static User getUser(String name){
+		for(User u: userList){
+			if(u.getName().equals(name)){
 				return u;
 			}
 		}
 		return null;
 	}
+	
+	
+	public boolean containsUser(User u){
+		if(!isSetUp){
+			setupUserList(); 
+		}
+		
+		for(User userInList: userList){
+			if(User.nameEquals(u, userInList)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	// populates the Collection with Users from file
+	private static void setupUserList(){
+		FileInputStream fis = null;
+		ObjectInputStream in = null;
+		try {
+			fis = new FileInputStream(filename);
+			in = new ObjectInputStream(fis);
+			User u;
+			while(in.available() > 1 && (u = (User) in.readObject()) != null){
+				userList.add(u);
+			}
+			in.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		for(User fin: userList){
+			System.out.println(fin);
+		}
+	}
+	
+	public static boolean containsName(String name){
+		if(!isSetUp){
+			setupUserList();
+		}
+		for(User userInList: userList){
+			if(name.equals(userInList.getName())){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean containsNameAndPassword(String name, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 }

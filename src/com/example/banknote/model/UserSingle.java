@@ -5,11 +5,11 @@ public class UserSingle {
 	private static UserSingle instance;
 	private static User currentUser;
 	
-	 public UserSingle(){
+	 private UserSingle(){
 		 
 	 }
 	 
-	 public UserSingle(User user){
+	 private UserSingle(User user){
 		 currentUser = user;
 	 }
 	 

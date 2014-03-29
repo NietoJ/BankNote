@@ -95,6 +95,13 @@ public class User
 	{
 		return accounts;
 	}
+
+	public static boolean nameEquals(User u1, User u2) {
+		if(u1.getName().equals(u2.getName())){
+			return true;
+		}
+		return false;
+	}
 	
 	public Account getAccountByDisplay(String name){
 		for(Account a: accounts){

@@ -95,4 +95,14 @@ public class User
 	{
 		return accounts;
 	}
+	
+	public Account getAccountByDisplay(String name){
+		for(Account a: accounts){
+			if(a.getDisplayName().equals(name)){
+				return a;
+			}
+		}
+		return null;
+		
+	}
 }

@@ -43,9 +43,5 @@ implements DatePickerDialog.OnDateSetListener
 		
 	}
 	
-	@Override
-	public void onBackPressed() 
-	{
-		startActivity(new Intent(getApplicationContext(), Welcome_screen.class));
-	}
+
 }

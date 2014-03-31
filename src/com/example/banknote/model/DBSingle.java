@@ -33,7 +33,7 @@ public class DBSingle
 		String filePath = c.getFilesDir() + "/android.db4o";
         final EmbeddedConfiguration config = configure();
         oc = Db4oEmbedded.openFile(config,filePath);
-        oc.close();
+
 	}
 	
 	public ObjectContainer getDB()
@@ -57,6 +57,7 @@ public class DBSingle
 		config.common().objectClass(Account.class).objectField("fullName").indexed(true);
 		config.common().objectClass(Account.class).cascadeOnUpdate(true);
 		config.common().objectClass(Account.class).cascadeOnDelete(true);
+		
 		
 		return config;
 	

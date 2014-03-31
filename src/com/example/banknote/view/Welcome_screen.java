@@ -1,13 +1,13 @@
 package com.example.banknote.view;
 
-import com.example.banknote.R;
-import com.example.banknote.model.DBSingle;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+
+import com.example.banknote.R;
+import com.example.banknote.model.DBSingle;
 
 public class Welcome_screen extends Activity 
 {
@@ -17,7 +17,10 @@ public class Welcome_screen extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_welcome_screen);
-		DBSingle.getInstance().setDB(this); //this here is the context
+		if (DBSingle.getInstance().getDB() == null)
+		{
+			DBSingle.getInstance().setDB(this); //this here is the context
+		}
 	}
 
 	@Override
@@ -43,7 +46,8 @@ public class Welcome_screen extends Activity
 	{
 		Intent intent = new Intent(this, Register_screen.class);
 		startActivity(intent);
-		//finish();
+		finish();
 	}
 
+	
 }

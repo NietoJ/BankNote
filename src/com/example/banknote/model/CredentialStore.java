@@ -69,7 +69,7 @@ public class CredentialStore
 	}
 	
 	/**
-	 * Determines if a user with a given name and password exists
+	 * Determines if a user with a given name and password exists.
 	 * @param name
 	 * @param password
 	 * @return true if the user exists

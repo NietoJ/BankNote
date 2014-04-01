@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  */
 
-public class Account implements Comparable<Account>
+public class Account implements Comparable<Account>, Serializable
 {
 	/*
 	 * A descriptive name for the account

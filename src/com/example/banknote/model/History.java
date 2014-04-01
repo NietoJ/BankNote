@@ -1,5 +1,6 @@
 package com.example.banknote.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import android.widget.Toast;
  *
  */
 
-public class History {
+public class History implements Serializable{
 	
 	/*
 	 * ArrayList of transaction

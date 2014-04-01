@@ -1,5 +1,6 @@
 package com.example.banknote.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date;
  * @author Nghia Huynh
  *
  */
-public class Transaction {
+public class Transaction implements Serializable {
 	
 	/*
 	 * A descriptive type for the transaction

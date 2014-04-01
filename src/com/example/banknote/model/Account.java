@@ -1,6 +1,7 @@
 package com.example.banknote.model;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+
 
 
 /**
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  *
  */
 
-public class Account implements Comparable<Account> 
+public class Account implements Comparable<Account>
 {
 	/*
 	 * A descriptive name for the account

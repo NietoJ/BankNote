@@ -1,13 +1,12 @@
 package com.example.banknote.view;
 
-import com.example.banknote.R;
-import com.example.banknote.model.DBSingle;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+
+import com.example.banknote.R;
 
 public class Welcome_screen extends Activity 
 {

@@ -1,6 +1,6 @@
 package JUnit;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -24,5 +24,14 @@ public class RegisterTest {
 		assertTrue(LoginHandler.attemptLogin("bob", "waters"));
 		assertFalse(RegisterHandler.store("bob", "waters"));
 		System.out.println(RegisterHandler.store("bob", "waters"));
+	}
+	
+	@Test
+	public void registerNull() {
+		System.out.println(RegisterHandler.store(null, null));
+		assertTrue(LoginHandler.attemptLogin("admin", "pass123"));
+		assertFalse(LoginHandler.attemptLogin("bob", "waters"));
+		assertTrue(RegisterHandler.store("bob", "waters"));
+		assertFalse(RegisterHandler.store("bob", "waters"));
 	}
 }

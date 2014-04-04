@@ -7,9 +7,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CredentialStore {
+public class CredentialStore implements Serializable {
 	// Holds users, each with a name and password
 	private static ArrayList<User> users = new ArrayList<User>();
 	private static String filename = "banknote.dat";
@@ -140,5 +141,47 @@ public class CredentialStore {
 				new FileInputStream(filename)));
 		users = (ArrayList<User>) fin.readObject();
 		fin.close();
+	}
+	
+	public void updateUsers() {
+		String filename = "users.ser";
+
+	    // save the object to file
+	    FileOutputStream fos = null;
+	    ObjectOutputStream out = null;
+	    try {
+	      fos = new FileOutputStream(filename);
+	      out = new ObjectOutputStream(fos);
+	      out.writeObject(users);
+
+	      out.close();
+	    } catch (Exception ex) {
+	      ex.printStackTrace();
+	    }
+	    // read the object from file
+	    // save the object to file
+	    FileInputStream fis = null;
+	    ObjectInputStream in = null;
+	    try {
+	      fis = new FileInputStream(filename);
+	      in = new ObjectInputStream(fis);
+	      ArrayList<User> inputUsers = (ArrayList<User>) in.readObject();
+	      in.close();
+	    } catch (Exception ex) {
+	      ex.printStackTrace();
+	    }
+	}
+	
+	public void readFromFile() {
+	    FileInputStream fis = null;
+	    ObjectInputStream in = null;
+	    try {
+	      fis = new FileInputStream(filename);
+	      in = new ObjectInputStream(fis);
+	      ArrayList<User> inputUsers = (ArrayList<User>) in.readObject();
+	      in.close();
+	    } catch (Exception ex) {
+	      ex.printStackTrace();
+	    }
 	}
 }
